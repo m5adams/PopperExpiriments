@@ -85,16 +85,21 @@ const LoginScreen = () => {
             Forgot Password?
           </Text>
         </Pressable>
-        <Pressable
-          style={({pressed}) =>
-            pressed
-            ? [{marginTop: 20}, styles.pressed]
-            : [{marginTop: 20}]}
-        >
-          <Text style={{color: Colors.accent500, textDecorationLine: 'underline'}}>
-            Sign Up!
+        <View style={styles.logInContainer}>
+          <Text style={{color: 'white', fontSize: '14', marginRight: 5}}>
+            Don't have an Account?
           </Text>
-        </Pressable>
+          <Pressable
+            style={({pressed}) =>
+              pressed
+              ? [styles.pressed]
+              : []}
+          >
+            <Text style={{color: Colors.accent500, textDecorationLine: 'underline'}}>
+              Sign Up!
+            </Text>
+          </Pressable>
+        </View>
       </View>
 
       {/* Horizontal Divider */}
@@ -226,5 +231,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'white',
     fontSize: 14
+  },
+  logInContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+    flexDirection: 'row'
   },
 });

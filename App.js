@@ -3,6 +3,7 @@ import { StyleSheet, SafeAreaView } from 'react-native';
 
 import LoginScreen from './screens/LoginScreen';
 import CreateAccount from './screens/CreateAccount';
+import ForgotPassword from './screens/ForgotPassword';
 import LoginScreen2 from './screens/LoginScreen';
 import UserProfileScreen from './screens/UserProfileScreen';
 import Colors from './constants/colors';
@@ -15,7 +16,7 @@ export default function App() {
     //<Background style={styles.rootScreen}>
     <KeyboardComponent>
       <SafeAreaView style={styles.rootScreen}>
-        <LoginScreen />
+        <CreateAccount />
       </SafeAreaView>
     </KeyboardComponent>
     //</Background>

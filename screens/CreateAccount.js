@@ -179,7 +179,6 @@ const styles = StyleSheet.create({
     opacity: 0.75
   },
   signInWith: {
-    // marginTop: 20,
     textAlign: 'center',
     color: 'white',
     fontSize: 14
