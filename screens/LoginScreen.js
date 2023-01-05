@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, Text, TextInput, Button, Pressable, Image } from 'react-native';
+import React, { useState, useRef } from 'react';
+import { StyleSheet, ScrollView, View, Text, TextInput, Pressable, Image } from 'react-native';
 
 import Divider from '../components/ui/Divider';
 import Colors from '../constants/colors';
@@ -9,6 +9,7 @@ import BubbleButton from '../components/ui/BubbleButton';
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const passWord = useRef();
   const [error, setError] = useState(null);
 
   /*const handleLogin = () => {
@@ -24,27 +25,30 @@ const LoginScreen = () => {
   };*/
 
   return (
-    <View>
+    <ScrollView >
       {error && <Text>{error}</Text>}
 
       {/* Popper Logo and Motto Text */}
+
       <View style={styles.imageContainer}>
         <Image style={styles.image} source={require('../assets/images/popper.png')}/>
       </View>
-      <View style={styles.mottoContainer}>
-        <Text style={styles.mottoTextFirst}>Pop Social Bubbles. Get Rewarded. Meet Again. </Text>
-        <Text style={styles.mottoTextSecond}>Elevate your social excursions.</Text>
-      </View>
       
       {/* Login Text Inputs and Buttons */}
-      <Text style={styles.loginText}>
-          Login with your Popper Account:
-      </Text>
       
-      <View>
+      <View style={{marginTop: 20}}>
+        <Text style={styles.loginText}>
+            Login with your Popper Account:
+        </Text>
+
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
+            returnKeyType="next"
+            onSubmitEditing={() => {
+              passWord.current.focus();
+            }}
+            blurOnSubmit={false}
             placeholder="Username or Email Address"
             placeholderTextColor={'gray'}
             value={email}
@@ -55,6 +59,7 @@ const LoginScreen = () => {
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
+            ref={passWord}
             placeholder="Password"
             placeholderTextColor={'gray'}
             value={password}
@@ -69,57 +74,64 @@ const LoginScreen = () => {
         
       </View>
 
-      <View style={styles.otherOptionsTextContainer}>
-        <Text style={styles.otherOptionsText}>
-          Forgot <Pressable><Text style={{color: Colors.accent500, textDecorationLine: 'underline'}}>Username</Text></Pressable> or 
-          <Pressable><Text style={{color: Colors.accent500, textDecorationLine: 'underline'}}> Password</Text></Pressable>.
-        </Text>
-        <Text style={{color: 'white'}}>
-          Dont have an Account? <Pressable><Text style={{color: Colors.accent500, textDecorationLine: 'underline'}}>Sign Up</Text></Pressable>!
-        </Text>
+      <View style={styles.forgotPasswordContainer}>
+        <Pressable
+          style={({pressed}) =>
+            pressed
+            ? styles.pressed
+            : []}
+        >
+          <Text style={{color: Colors.accent500, textDecorationLine: 'underline'}}>
+            Forgot Password?
+          </Text>
+        </Pressable>
+        <Pressable
+          style={({pressed}) =>
+            pressed
+            ? [{marginTop: 20}, styles.pressed]
+            : [{marginTop: 20}]}
+        >
+          <Text style={{color: Colors.accent500, textDecorationLine: 'underline'}}>
+            Sign Up!
+          </Text>
+        </Pressable>
       </View>
 
       {/* Horizontal Divider */}
-      <Divider>OR</Divider>
+
+      <View style={{marginTop: 30}}>
+        <Divider>OR</Divider>
+      </View>
 
       {/* Other Sign-In Options */}
 
-      <View style={styles.continueWithContainer}>
-        <View style={styles.continueWithButtonOuterContainer}>
+      <View>
+        <Text style={styles.signInWith}>Sign in with: </Text>
+        <View style={styles.continueWithContainer}>
           <Pressable style={({pressed}) =>
             pressed
             ? [styles.continueWithButtonInnerContainer, {backgroundColor: '#1778f2'}, styles.pressed]
             : [styles.continueWithButtonInnerContainer, {backgroundColor: '#1778f2'}]}
           >
-            <Text style={{color: 'white'}}>
-              Continue with Facebook
-            </Text>
+            <Image style={styles.icon} source={require('../assets/icons/facebook-icon.png')}/>
           </Pressable>
-        </View>
-        <View style={styles.continueWithButtonOuterContainer}>
           <Pressable style={({pressed}) =>
             pressed
-            ? [styles.continueWithButtonInnerContainer, {backgroundColor: 'white'}, styles.pressed]
-            : [styles.continueWithButtonInnerContainer, {backgroundColor: 'white'}]}
+            ? [styles.googleIconContainer, {backgroundColor: 'white'}, styles.pressed]
+            : [styles.googleIconContainer, {backgroundColor: 'white'}]}
           >
-            <Text style={{color: 'gray'}}>
-              Continue with Google
-            </Text>
+            <Image style={styles.googleIcon} source={require('../assets/icons/google-icon.png')}/>
           </Pressable>
-        </View>
-        <View style={styles.continueWithButtonOuterContainer}>
           <Pressable style={({pressed}) =>
             pressed
             ? [styles.continueWithButtonInnerContainer, {backgroundColor: 'black'}, styles.pressed]
             : [styles.continueWithButtonInnerContainer, {backgroundColor: 'black'}]}
           >
-            <Text style={{color: 'white'}}>
-              Continue with Apple ID
-            </Text>
+            <Image style={styles.icon} source={require('../assets/icons/apple-icon.png')}/>
           </Pressable>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -131,22 +143,9 @@ const styles = StyleSheet.create({
   },
   image: {
     marginHorizontal: 20,
-    marginTop: 20,
+    marginTop: 40,
     width: 200,
     height: 200,
-  },
-  mottoContainer: {
-    alignItems: 'center'
-  },
-  mottoTextFirst: {
-    color: 'white',
-    fontSize: 10,
-    margin: 2
-  },
-  mottoTextSecond: {
-    color: 'white',
-    fontSize: 10,
-    marginBottom: 2,
   },
   loginText: {
     width: '90%',
@@ -170,18 +169,16 @@ const styles = StyleSheet.create({
     padding: 8,
     backgroundColor: 'white'
   },
-  otherOptionsTextContainer: {
-    alignItems: 'center'
-  },
-  otherOptionsText: {
-    color: 'white',
+  forgotPasswordContainer: {
+    alignItems: 'center',
+    marginTop: 20
   },
   signInButtonContainer: {
     position: 'absolute',
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'flex-end',
-    marginTop: 38,
+    marginTop: 70,
     paddingRight: 20,
     borderRadius: 100,
   },
@@ -191,15 +188,43 @@ const styles = StyleSheet.create({
   continueWithContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  continueWithButtonOuterContainer: {
-    width: '85%'
+    flexDirection: 'row',
   },
   continueWithButtonInnerContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 12,
     height: 50,
-    marginVertical: 12
+    width: 50,
+    marginTop: 20,
+    flexDirection: 'row',
+    borderRadius: 100,
+    marginHorizontal: 10,
+  },
+  icon: {
+    width: 50,
+    height: 50,
+    borderRadius: 100
+  },
+  googleIconContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 50,
+    width: 50,
+    marginTop: 20,
+    flexDirection: 'row',
+    borderRadius: 100,
+    marginHorizontal: 10,
+    backgroundColor: 'white'
+  },
+  googleIcon: {
+    width: 40,
+    height: 40,
+    borderRadius: 100
+  },
+  signInWith: {
+    marginTop: 25,
+    textAlign: 'center',
+    color: 'white',
+    fontSize: 14
   },
 });

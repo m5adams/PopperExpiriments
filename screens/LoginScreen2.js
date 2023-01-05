@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TextInput, Pressable, Image } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Button, Pressable, Image } from 'react-native';
 
 import Divider from '../components/ui/Divider';
 import Colors from '../constants/colors';
@@ -28,18 +28,20 @@ const LoginScreen2 = () => {
       {error && <Text>{error}</Text>}
 
       {/* Popper Logo and Motto Text */}
-
       <View style={styles.imageContainer}>
         <Image style={styles.image} source={require('../assets/images/popper.png')}/>
       </View>
+      <View style={styles.mottoContainer}>
+        <Text style={styles.mottoTextFirst}>Pop Social Bubbles. Get Rewarded. Meet Again. </Text>
+        <Text style={styles.mottoTextSecond}>Elevate your social excursions.</Text>
+      </View>
       
       {/* Login Text Inputs and Buttons */}
+      <Text style={styles.loginText}>
+          Login with your Popper Account:
+      </Text>
       
-      <View style={{marginTop: 20}}>
-        <Text style={styles.loginText}>
-            Login with your Popper Account:
-        </Text>
-
+      <View>
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
@@ -67,50 +69,56 @@ const LoginScreen2 = () => {
         
       </View>
 
-      <View style={styles.forgotPasswordContainer}>
-        <Pressable>
-          <Text style={{color: Colors.accent500, textDecorationLine: 'underline'}}>
-            Forgot Password?
-          </Text>
-        </Pressable>
-        <Pressable>
-          <Text style={{color: Colors.accent500, textDecorationLine: 'underline'}}>
-            Sign Up!
-          </Text>
-        </Pressable>
+      <View style={styles.otherOptionsTextContainer}>
+        <Text style={styles.otherOptionsText}>
+          Forgot <Pressable><Text style={{color: Colors.accent500, textDecorationLine: 'underline'}}>Username</Text></Pressable> or 
+          <Pressable><Text style={{color: Colors.accent500, textDecorationLine: 'underline'}}> Password</Text></Pressable>.
+        </Text>
+        <Text style={{color: 'white'}}>
+          Dont have an Account? <Pressable><Text style={{color: Colors.accent500, textDecorationLine: 'underline'}}>Sign Up</Text></Pressable>!
+        </Text>
       </View>
 
       {/* Horizontal Divider */}
-
-      <View style={{marginTop: 45}}>
-        <Divider>OR</Divider>
-      </View>
+      <Divider>OR</Divider>
 
       {/* Other Sign-In Options */}
 
-      <View>
-        <Text style={styles.signInWith}>Sign in with: </Text>
-        <View style={styles.continueWithContainer}>
+      <View style={styles.continueWithContainer}>
+        <View style={styles.continueWithButtonOuterContainer}>
           <Pressable style={({pressed}) =>
             pressed
             ? [styles.continueWithButtonInnerContainer, {backgroundColor: '#1778f2'}, styles.pressed]
             : [styles.continueWithButtonInnerContainer, {backgroundColor: '#1778f2'}]}
           >
             <Image style={styles.icon} source={require('../assets/icons/facebook-icon.png')}/>
+            <Text style={{color: 'white'}}>
+              Continue with Facebook
+            </Text>
           </Pressable>
+        </View>
+        <View style={styles.continueWithButtonOuterContainer}>
           <Pressable style={({pressed}) =>
             pressed
-            ? [styles.googleIconContainer, {backgroundColor: 'white'}, styles.pressed]
-            : [styles.googleIconContainer, {backgroundColor: 'white'}]}
+            ? [styles.continueWithButtonInnerContainer, {backgroundColor: 'white'}, styles.pressed]
+            : [styles.continueWithButtonInnerContainer, {backgroundColor: 'white'}]}
           >
-            <Image style={styles.googleIcon} source={require('../assets/icons/google-icon.png')}/>
+            <Image style={styles.icon} source={require('../assets/icons/google-icon.png')}/>
+            <Text style={{color: 'gray'}}>
+              Continue with Google
+            </Text>
           </Pressable>
+        </View>
+        <View style={styles.continueWithButtonOuterContainer}>
           <Pressable style={({pressed}) =>
             pressed
             ? [styles.continueWithButtonInnerContainer, {backgroundColor: 'black'}, styles.pressed]
             : [styles.continueWithButtonInnerContainer, {backgroundColor: 'black'}]}
           >
             <Image style={styles.icon} source={require('../assets/icons/apple-icon.png')}/>
+            <Text style={{color: 'white'}}>
+              Continue with Apple ID
+            </Text>
           </Pressable>
         </View>
       </View>
@@ -126,9 +134,22 @@ const styles = StyleSheet.create({
   },
   image: {
     marginHorizontal: 20,
-    marginTop: 40,
+    marginTop: 20,
     width: 200,
     height: 200,
+  },
+  mottoContainer: {
+    alignItems: 'center'
+  },
+  mottoTextFirst: {
+    color: 'white',
+    fontSize: 10,
+    margin: 2
+  },
+  mottoTextSecond: {
+    color: 'white',
+    fontSize: 10,
+    marginBottom: 2,
   },
   loginText: {
     width: '90%',
@@ -152,16 +173,18 @@ const styles = StyleSheet.create({
     padding: 8,
     backgroundColor: 'white'
   },
-  forgotPasswordContainer: {
-    alignItems: 'center',
-    marginTop: 20
+  otherOptionsTextContainer: {
+    alignItems: 'center'
+  },
+  otherOptionsText: {
+    color: 'white',
   },
   signInButtonContainer: {
     position: 'absolute',
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'flex-end',
-    marginTop: 70,
+    marginTop: 38,
     paddingRight: 20,
     borderRadius: 100,
   },
@@ -171,43 +194,21 @@ const styles = StyleSheet.create({
   continueWithContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'row',
+  },
+  continueWithButtonOuterContainer: {
+    width: '85%',
+    flexDirection: 'row'
   },
   continueWithButtonInnerContainer: {
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 12,
     height: 50,
-    width: 50,
-    marginTop: 20,
-    flexDirection: 'row',
-    borderRadius: 100,
-    marginHorizontal: 10,
+    marginVertical: 12
   },
   icon: {
-    width: 50,
-    height: 50,
-    borderRadius: 100
-  },
-  googleIconContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 50,
-    width: 50,
-    marginTop: 20,
-    flexDirection: 'row',
-    borderRadius: 100,
-    marginHorizontal: 10,
-    backgroundColor: 'white'
-  },
-  googleIcon: {
     width: 40,
     height: 40,
     borderRadius: 100
-  },
-  signInWith: {
-    marginTop: 25,
-    textAlign: 'center',
-    color: 'white',
-    fontSize: 14
   },
 });

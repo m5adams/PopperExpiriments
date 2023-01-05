@@ -2,21 +2,22 @@ import React from 'react';
 import { StyleSheet, SafeAreaView } from 'react-native';
 
 import LoginScreen from './screens/LoginScreen';
-import LoginScreen2 from './screens/LoginScreen2';
+import CreateAccount from './screens/CreateAccount';
+import LoginScreen2 from './screens/LoginScreen';
 import UserProfileScreen from './screens/UserProfileScreen';
 import Colors from './constants/colors';
-import HideKeyboard from './components/functionality/HideKeyboard';
+import KeyboardComponent from './components/functionality/KeyboardComponent';
 // import NavigationBar from './components/NavigationBar';
-//import Background from './components/Background';
+// import Background from './components/Background';
 
 export default function App() {
   return (
     //<Background style={styles.rootScreen}>
-    <HideKeyboard>
+    <KeyboardComponent>
       <SafeAreaView style={styles.rootScreen}>
-        <LoginScreen2 />
+        <LoginScreen />
       </SafeAreaView>
-    </HideKeyboard>
+    </KeyboardComponent>
     //</Background>
   );
 }
