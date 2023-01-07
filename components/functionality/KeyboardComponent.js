@@ -1,15 +1,10 @@
 import React from 'react';
-import { KeyboardAvoidingView, Keyboard, TouchableWithoutFeedback, StyleSheet } from 'react-native';
+import { Keyboard, TouchableWithoutFeedback, StyleSheet } from 'react-native';
 
 const KeyBoardComponent = ({ children }) => (
-  <KeyboardAvoidingView
-    behavior={Platform.OS === "ios" ? "padding" : "height"}
-    style={styles.container}
-  >
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      {children}
-    </TouchableWithoutFeedback>
-  </KeyboardAvoidingView>
+  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+    {children}
+  </TouchableWithoutFeedback>
 );
 
 export default KeyBoardComponent;

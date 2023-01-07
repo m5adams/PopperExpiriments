@@ -1,37 +1,23 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TextInput, Pressable, Image } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Pressable, Image, KeyboardAvoidingView } from 'react-native';
 
 import Colors from '../constants/colors';
 import BubbleButton from '../components/ui/BubbleButton';
-//import firebase from 'react-native-firebase';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
-  const [error, setError] = useState(null);
-
-  /*const handleLogin = () => {
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then(() => {
-        // Navigate to main screen or display success message
-      })
-      .catch(error => {
-        setError(error.message);
-      });
-  };*/
 
   return (
-    <View >
-      {error && <Text>{error}</Text>}
+    <View style={styles.screen}>
+      <KeyboardAvoidingView style={styles.screen} behavior="padding">
 
-      {/* Popper Logo and Motto Text */}
+      {/* Popper Logo */}
 
       <View style={styles.imageContainer}>
         <Image style={styles.image} source={require('../assets/images/popper.png')}/>
       </View>
       
-      {/* Login Text Inputs and Buttons */}
+      {/* Email Address Input and Button */}
       
       <View style={{marginTop: 20}}>
         <Text style={styles.loginText}>
@@ -53,6 +39,8 @@ const ForgotPassword = () => {
         </View>
         
       </View>
+
+      {/* Other Sign in Options */}
 
       <View style={styles.logInContainer}>
         <Text style={{color: 'white', fontSize: '14', marginRight: 5}}>
@@ -84,7 +72,7 @@ const ForgotPassword = () => {
             </Text>
           </Pressable>
         </View>
-
+      </KeyboardAvoidingView>
     </View>
   );
 };
@@ -92,6 +80,9 @@ const ForgotPassword = () => {
 export default ForgotPassword;
 
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
   imageContainer: {
     alignItems: 'center'
   },
@@ -109,9 +100,10 @@ const styles = StyleSheet.create({
     alignContent: 'flex-end'
   },
   inputContainer: {
-    margin: 8,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    margin: 8,
+    borderRadius: 12,
   },
   input: {
     height: 50,

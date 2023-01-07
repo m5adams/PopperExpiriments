@@ -1,9 +1,8 @@
 import React, { useState, useRef } from 'react';
-import { StyleSheet, View, ScrollView, Text, TextInput, Pressable, Image } from 'react-native';
+import { StyleSheet, View, ScrollView, Text, TextInput, Pressable, Image, KeyboardAvoidingView } from 'react-native';
 
 import Colors from '../constants/colors';
 import BubbleButton from '../components/ui/BubbleButton';
-//import firebase from 'react-native-firebase';
 
 const CreateAccount = () => {
   const [email, setEmail] = useState('');
@@ -13,118 +12,106 @@ const CreateAccount = () => {
   const passWord = useRef();
   const [repassword, setRepassword] = useState('');
   const repassWord = useRef();
-  const [error, setError] = useState(null);
-
-  /*const handleLogin = () => {
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then(() => {
-        // Navigate to main screen or display success message
-      })
-      .catch(error => {
-        setError(error.message);
-      });
-  };*/
 
   return (
-    <ScrollView keyboardDismissMode='onDrag'>
-      {error && <Text>{error}</Text>}
+    <ScrollView style={styles.screen} >
+      <KeyboardAvoidingView style={styles.screen} behavior="position">
 
-      {/* Popper Logo*/}
+        {/* Popper Logo*/}
 
-      <View style={styles.imageContainer}>
-        <Image style={styles.image} source={require('../assets/images/popper.png')}/>
-      </View>
-      
-      {/* Login Text Inputs and Buttons */}
-      
-      <View style={{marginTop: 20}}>
-        <Text style={styles.createText}>
-            Create your Popper Account:
-        </Text>
-
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.input}
-            returnKeyType="next"
-            onSubmitEditing={() => {
-              userName.current.focus();
-            }}
-            blurOnSubmit={false}
-            placeholder="Email Address"
-            placeholderTextColor={'gray'}
-            value={email}
-            onChangeText={text => setEmail(text)}
-          />
-        </View>
-
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.input}
-            returnKeyType="next"
-            ref={userName}
-            onSubmitEditing={() => {
-              passWord.current.focus();
-            }}
-            blurOnSubmit={false}
-            placeholder="Username"
-            placeholderTextColor={'gray'}
-            value={username}
-            onChangeText={text => setUsername(text)}
-          />
-        </View>
-
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.input}
-            returnKeyType="next"
-            ref={passWord}
-            onSubmitEditing={() => {
-              repassWord.current.focus();
-            }}
-            blurOnSubmit={false}
-            placeholder="Password"
-            placeholderTextColor={'gray'}
-            value={password}
-            onChangeText={text => setPassword(text)}
-            secureTextEntry
-          />
-        </View>
-
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.input}
-            ref={repassWord}
-            placeholder="Confirm Password"
-            placeholderTextColor={'gray'}
-            value={repassword}
-            onChangeText={text => setRepassword(text)}
-            secureTextEntry
-          />
-        </View>
-
-        <View style={styles.createAccountButtonContainer}>
-          <BubbleButton>Create Account</BubbleButton>
+        <View style={styles.imageContainer}>
+          <Image style={styles.image} source={require('../assets/images/popper.png')}/>
         </View>
         
-      </View>
-
-      <View style={styles.logInContainer}>
-        <Text style={{color: 'white', fontSize: '14', marginRight: 5}}>
-          Already have an Account?
-        </Text>
-        <Pressable 
-          style={({pressed}) =>
-            pressed
-            ? [{color: Colors.accent500, textDecorationLine: 'underline'}, styles.pressed]
-            : [{color: Colors.accent500, textDecorationLine: 'underline'}]}
-        >
-          <Text style={{color: Colors.accent500, textDecorationLine: 'underline'}}>
-            Login!
+        {/* Login Text Inputs and Buttons */}
+        
+        <View style={{marginTop: 20}}>
+          <Text style={styles.createText}>
+              Create your Popper Account:
           </Text>
-        </Pressable>
-      </View>
+
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              returnKeyType="next"
+              onSubmitEditing={() => {
+                userName.current.focus();
+              }}
+              blurOnSubmit={false}
+              placeholder="Email Address"
+              placeholderTextColor={'gray'}
+              value={email}
+              onChangeText={text => setEmail(text)}
+            />
+          </View>
+
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              returnKeyType="next"
+              ref={userName}
+              onSubmitEditing={() => {
+                passWord.current.focus();
+              }}
+              blurOnSubmit={false}
+              placeholder="Username"
+              placeholderTextColor={'gray'}
+              value={username}
+              onChangeText={text => setUsername(text)}
+            />
+          </View>
+
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              returnKeyType="next"
+              ref={passWord}
+              onSubmitEditing={() => {
+                repassWord.current.focus();
+              }}
+              blurOnSubmit={false}
+              placeholder="Password"
+              placeholderTextColor={'gray'}
+              value={password}
+              onChangeText={text => setPassword(text)}
+              secureTextEntry
+            />
+          </View>
+
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              ref={repassWord}
+              placeholder="Confirm Password"
+              placeholderTextColor={'gray'}
+              value={repassword}
+              onChangeText={text => setRepassword(text)}
+              secureTextEntry
+            />
+          </View>
+
+          <View style={styles.createAccountButtonContainer}>
+            <BubbleButton>Create Account</BubbleButton>
+          </View>
+          
+        </View>
+
+        <View style={styles.logInContainer}>
+          <Text style={{color: 'white', fontSize: '14', marginRight: 5}}>
+            Already have an Account?
+          </Text>
+          <Pressable 
+            style={({pressed}) =>
+              pressed
+              ? [{color: Colors.accent500, textDecorationLine: 'underline'}, styles.pressed]
+              : [{color: Colors.accent500, textDecorationLine: 'underline'}]}
+          >
+            <Text style={{color: Colors.accent500, textDecorationLine: 'underline'}}>
+              Login!
+            </Text>
+          </Pressable>
+        </View>
+      </KeyboardAvoidingView>
     </ScrollView>
   );
 };
@@ -132,6 +119,9 @@ const CreateAccount = () => {
 export default CreateAccount;
 
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
   imageContainer: {
     alignItems: 'center'
   },
@@ -149,9 +139,10 @@ const styles = StyleSheet.create({
     alignContent: 'flex-end'
   },
   inputContainer: {
-    margin: 8,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    margin: 8,
+    borderRadius: 12,
   },
   input: {
     height: 50,
