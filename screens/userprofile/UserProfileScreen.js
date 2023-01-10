@@ -1,21 +1,11 @@
 import React, { useState } from 'react';
-import { View, TextInput, Text, Button, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
+import { View, TextInput, Text, Button, StyleSheet, ScrollView } from 'react-native';
 
 const UserProfileScreen = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [age, setAge] = useState('');
-  const [error, setError] = useState(null);
-
-  const handleSave = () => {
-    if (!name || !email || !phone || !age) {
-      setError('Please enter your name, email, phone, and age.');
-    } else {
-      // Validate input and update profile information in your database or a third-party service
-      // Display success message or navigate to another screen
-    }
-  };
 
   return (
     <ScrollView style={styles.container}>
@@ -50,6 +40,8 @@ const UserProfileScreen = () => {
   );
 };
 
+export default UserProfileScreen;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -72,4 +64,3 @@ const styles = StyleSheet.create({
   }
 });
 
-export default UserProfileScreen;

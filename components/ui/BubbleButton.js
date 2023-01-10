@@ -6,7 +6,7 @@ import { View, Pressable, Text, StyleSheet } from "react-native";
 
 import Colors from "../../constants/colors";
 
-const BubbleButton = ({children}) => {
+const BubbleButton = ({children, onPress}) => {
   return (
     <View style={styles.signInButtonColorContainer}>
       <Pressable
@@ -14,6 +14,7 @@ const BubbleButton = ({children}) => {
           pressed 
             ? [styles.signInButton, styles.pressed]
               : styles.signInButton}
+          onPress={onPress}
         >
         <Text style={styles.signInText}>{children}</Text>
       </Pressable>

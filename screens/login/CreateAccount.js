@@ -1,10 +1,11 @@
 import React, { useState, useRef } from 'react';
 import { StyleSheet, View, ScrollView, Text, TextInput, Pressable, Image, KeyboardAvoidingView } from 'react-native';
 
-import Colors from '../constants/colors';
-import BubbleButton from '../components/ui/BubbleButton';
+import Colors from '../../constants/colors';
+import BubbleButton from '../../components/ui/BubbleButton';
+import KeyBoardComponent from '../../components/functionality/KeyboardComponent';
 
-const CreateAccount = () => {
+const CreateAccount = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const userName = useRef();
@@ -13,14 +14,23 @@ const CreateAccount = () => {
   const [repassword, setRepassword] = useState('');
   const repassWord = useRef();
 
+  function createAccountButtonHandler() {
+    navigation.navigate('Dashboard');
+  };
+
+  function loginButtonHandler() {
+    navigation.navigate('LoginScreen');
+  };
+
   return (
-    <ScrollView style={styles.screen} >
+    <KeyBoardComponent>
+      <ScrollView style={styles.screen} >
       <KeyboardAvoidingView style={styles.screen} behavior="position">
 
         {/* Popper Logo*/}
 
         <View style={styles.imageContainer}>
-          <Image style={styles.image} source={require('../assets/images/popper.png')}/>
+          <Image style={styles.image} source={require('../../assets/images/popper.png')}/>
         </View>
         
         {/* Login Text Inputs and Buttons */}
@@ -91,7 +101,7 @@ const CreateAccount = () => {
           </View>
 
           <View style={styles.createAccountButtonContainer}>
-            <BubbleButton>Create Account</BubbleButton>
+            <BubbleButton onPress={createAccountButtonHandler}>Create Account</BubbleButton>
           </View>
           
         </View>
@@ -105,6 +115,7 @@ const CreateAccount = () => {
               pressed
               ? [{color: Colors.accent500, textDecorationLine: 'underline'}, styles.pressed]
               : [{color: Colors.accent500, textDecorationLine: 'underline'}]}
+            onPress={loginButtonHandler}
           >
             <Text style={{color: Colors.accent500, textDecorationLine: 'underline'}}>
               Login!
@@ -112,7 +123,8 @@ const CreateAccount = () => {
           </Pressable>
         </View>
       </KeyboardAvoidingView>
-    </ScrollView>
+      </ScrollView>
+    </KeyBoardComponent>
   );
 };
 
@@ -127,14 +139,13 @@ const styles = StyleSheet.create({
   },
   image: {
     marginHorizontal: 20,
-    marginTop: 40,
+    marginTop: 60,
     width: 200,
     height: 200,
   },
   createText: {
     width: '90%',
     paddingLeft: 40,
-    marginTop: 16,
     color: 'white',
     alignContent: 'flex-end'
   },

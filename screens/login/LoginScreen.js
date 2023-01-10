@@ -1,24 +1,38 @@
 import React, { useState, useRef } from 'react';
 import { StyleSheet, ScrollView, View, Text, TextInput, Pressable, Image, KeyboardAvoidingView } from 'react-native';
 
-import Divider from '../components/ui/Divider';
-import Colors from '../constants/colors';
-import BubbleButton from '../components/ui/BubbleButton';
+import Divider from '../../components/ui/Divider';
+import Colors from '../../constants/colors';
+import BubbleButton from '../../components/ui/BubbleButton';
+import KeyBoardComponent from '../../components/functionality/KeyboardComponent';
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const passWord = useRef();
 
+  function loginButtonHandler() {
+    navigation.navigate('Dashboard')
+  };
+
+  function forgotPasswordButtonHandler() {
+    navigation.navigate('ForgotPassword');
+  };
+
+  function signUpButtonHandler() {
+    navigation.navigate('CreateAccount');
+  };
+
   return (
+    <KeyBoardComponent>
     <View style={styles.screen}>
-    <ScrollView style={styles.screen} keyboardDismissMode="on-drag">
-      <KeyboardAvoidingView style={styles.screen} behavior="padding">
+    {/* <ScrollView style={styles.screen} keyboardDismissMode="on-drag"> */}
+      <KeyboardAvoidingView style={styles.screen} behavior="position" keyboardVerticalOffset={-250}>
 
         {/* Popper Logo and Motto Text */}
 
         <View style={styles.imageContainer}>
-          <Image style={styles.image} source={require('../assets/images/popper.png')}/>
+          <Image style={styles.image} source={require('../../assets/images/popper.png')}/>
         </View>
         
         {/* Login Text Inputs and Buttons */}
@@ -56,7 +70,7 @@ const LoginScreen = () => {
           </View>
 
           <View style={styles.signInButtonContainer}>
-            <BubbleButton>Sign In</BubbleButton>
+            <BubbleButton onPress={loginButtonHandler}>Sign In</BubbleButton>
           </View>
           
         </View>
@@ -67,6 +81,7 @@ const LoginScreen = () => {
               pressed
               ? styles.pressed
               : []}
+              onPress={forgotPasswordButtonHandler}
           >
             <Text style={{color: Colors.accent500, textDecorationLine: 'underline'}}>
               Forgot Password?
@@ -81,6 +96,7 @@ const LoginScreen = () => {
                 pressed
                 ? [styles.pressed]
                 : []}
+                onPress={signUpButtonHandler}
             >
               <Text style={{color: Colors.accent500, textDecorationLine: 'underline'}}>
                 Sign Up!
@@ -105,27 +121,28 @@ const LoginScreen = () => {
               ? [styles.continueWithButtonInnerContainer, {backgroundColor: '#1778f2'}, styles.pressed]
               : [styles.continueWithButtonInnerContainer, {backgroundColor: '#1778f2'}]}
             >
-              <Image style={styles.icon} source={require('../assets/icons/facebook-icon.png')}/>
+              <Image style={styles.icon} source={require('../../assets/icons/facebook-icon.png')}/>
             </Pressable>
             <Pressable style={({pressed}) =>
               pressed
               ? [styles.googleIconContainer, {backgroundColor: 'white'}, styles.pressed]
               : [styles.googleIconContainer, {backgroundColor: 'white'}]}
             >
-              <Image style={styles.googleIcon} source={require('../assets/icons/google-icon.png')}/>
+              <Image style={styles.googleIcon} source={require('../../assets/icons/google-icon.png')}/>
             </Pressable>
             <Pressable style={({pressed}) =>
               pressed
               ? [styles.continueWithButtonInnerContainer, {backgroundColor: 'black'}, styles.pressed]
               : [styles.continueWithButtonInnerContainer, {backgroundColor: 'black'}]}
             >
-              <Image style={styles.icon} source={require('../assets/icons/apple-icon.png')}/>
+              <Image style={styles.icon} source={require('../../assets/icons/apple-icon.png')}/>
             </Pressable>
           </View>
         </View>
       </KeyboardAvoidingView>
-    </ScrollView>
+    {/* </ScrollView> */}
     </View>
+    </KeyBoardComponent>
   );
 };
 
@@ -140,14 +157,14 @@ const styles = StyleSheet.create({
   },
   image: {
     marginHorizontal: 20,
-    marginTop: 40,
+    marginTop: 50,
     width: 200,
     height: 200,
   },
   loginText: {
     width: '90%',
     paddingLeft: 40,
-    marginTop: 16,
+    marginTop: 10,
     color: 'white',
     alignContent: 'flex-end'
   },
