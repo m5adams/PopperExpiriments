@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
   },
   image: {
     marginHorizontal: 20,
-    marginTop: 60,
+    marginTop: 70,
     width: 200,
     height: 200,
   },

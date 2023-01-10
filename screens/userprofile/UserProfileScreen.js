@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, TextInput, Text, Button, StyleSheet, ScrollView } from 'react-native';
 
+import Colors from '../../constants/colors';
+
 const UserProfileScreen = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -45,7 +47,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 8,
-    marginTop: 100
+    backgroundColor: Colors.primary500,
   },
   input: {
     height: 40,

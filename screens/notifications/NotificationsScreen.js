@@ -1,6 +1,7 @@
 import { StyleSheet, View, Text } from "react-native";
 
 import BubbleButton from "../../components/ui/BubbleButton";
+import Colors from "../../constants/colors";
 
 const NotificationsScreen = ({navigation}) => {
 
@@ -25,7 +26,8 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: Colors.primary500,
   },
   imageContainer: {
     alignItems: 'center'

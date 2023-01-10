@@ -1,7 +1,3 @@
-//this file will contain the code to make a bubble button.
-//it will just be the pressable components of it and the onPress functionality will be added later
-//positioning can be done later or within the screen it is used in
-
 import { View, Pressable, Text, StyleSheet } from "react-native";
 
 import Colors from "../../constants/colors";
