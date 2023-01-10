@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'flex-end',
-    marginTop: 70,
+    marginTop: 65,
     paddingRight: 20,
     borderRadius: 100,
   },

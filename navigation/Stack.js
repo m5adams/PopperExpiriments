@@ -20,14 +20,23 @@ function StackNavigator() {
       <Stack.Screen 
         name='LandingScreen' 
         component={LandingScreen}
+        options={{
+          gestureEnabled: false
+        }}
       />
       <Stack.Screen 
         name='LoginScreen' 
         component={LoginScreen}
+        options={{
+          gestureEnabled: false
+        }}
       />
       <Stack.Screen 
         name='CreateAccount' 
         component={CreateAccount}
+        options={{
+          gestureEnabled: false
+        }}
       />
       <Stack.Screen 
         name='ForgotPassword' 
@@ -39,6 +48,9 @@ function StackNavigator() {
       <Stack.Screen 
         name='HomeScreen' 
         component={BottomTabNavigator}
+        options={{
+          gestureEnabled: false
+        }}
       />
     </Stack.Navigator>
   );

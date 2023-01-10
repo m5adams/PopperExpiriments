@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginVertical: 20,
   },
-  signInButtonContainer: {
+  button: {
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 20,

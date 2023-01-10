@@ -25,7 +25,7 @@ const CreateAccount = ({navigation}) => {
   return (
     <KeyBoardComponent>
       <ScrollView style={styles.screen} >
-      <KeyboardAvoidingView style={styles.screen} behavior="position">
+      <KeyboardAvoidingView style={styles.screen} behavior="position" keyboardVerticalOffset={-100}>
 
         {/* Popper Logo*/}
 
