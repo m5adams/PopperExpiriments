@@ -1,8 +1,8 @@
-import { StyleSheet, View, Text, Image } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 
-import BubbleButton from "../components/ui/BubbleButton";
+import BubbleButton from "../../components/ui/BubbleButton";
 
-const LandingScreen = ({navigation}) => {
+const NotificationsScreen = ({navigation}) => {
 
   function pressHandler() {
     navigation.navigate('LoginScreen');
@@ -10,20 +10,16 @@ const LandingScreen = ({navigation}) => {
 
   return (
     <View style={styles.screen}>
-      <View style={styles.imageContainer}>
-        <Image style={styles.image} source={require('../assets/images/popper.png')}/>
-      </View>
-
-      <Text style={styles.text}>Welcome to Popper!</Text>
+      <Text style={styles.text}>Notifications Screen</Text>
 
       <View style={styles.button}>
-        <BubbleButton onPress={pressHandler}>POP!</BubbleButton>
+        <BubbleButton onPress={pressHandler}>Notifications</BubbleButton>
       </View>
     </View>
   );
 };
 
-export default LandingScreen;
+export default NotificationsScreen;
 
 const styles = StyleSheet.create({
   screen: {

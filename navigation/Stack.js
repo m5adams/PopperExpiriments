@@ -5,6 +5,7 @@ import LoginScreen from '../screens/login/LoginScreen';
 import CreateAccount from '../screens/login/CreateAccount';
 import ForgotPassword from '../screens/login/ForgotPassword';
 import Home from '../screens/home/Home';
+import BottomTabNavigator from './BottomTab';
 import Colors from '../constants/colors';
 
 const Stack = createNativeStackNavigator();
@@ -36,11 +37,8 @@ function StackNavigator() {
         }}
       />
       <Stack.Screen 
-        name='Home' 
-        component={Home}
-        options={{
-          title: 'Home'
-        }}
+        name='HomeScreen' 
+        component={BottomTabNavigator}
       />
     </Stack.Navigator>
   );

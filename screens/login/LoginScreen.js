@@ -12,7 +12,7 @@ const LoginScreen = ({navigation}) => {
   const passWord = useRef();
 
   function loginButtonHandler() {
-    navigation.navigate('Home')
+    navigation.navigate('HomeScreen')
   };
 
   function forgotPasswordButtonHandler() {

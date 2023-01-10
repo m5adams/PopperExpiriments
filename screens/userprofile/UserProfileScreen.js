@@ -10,7 +10,6 @@ const UserProfileScreen = () => {
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.profile}>My Profile</Text>
-      {error && <Text>{error}</Text>}
       <TextInput
         style={styles.input}
         placeholder="Name"
@@ -35,7 +34,7 @@ const UserProfileScreen = () => {
         value={age}
         onChangeText={text => setAge(text)}
       />
-      <Button title="Save" onPress={handleSave} />
+      <Button title="Save"/>
     </ScrollView>
   );
 };

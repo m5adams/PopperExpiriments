@@ -2,24 +2,24 @@ import { StyleSheet, View, Text } from "react-native";
 
 import BubbleButton from "../../components/ui/BubbleButton";
 
-const Home = ({navigation}) => {
+const MessagesScreen = ({navigation}) => {
 
   function pressHandler() {
-    console.log('in home');
+    // navigation.navigate('LoginScreen');
   };
 
   return (
     <View style={styles.screen}>
-      <Text style={styles.text}>Home Screen will go here</Text>
+      <Text style={styles.text}>Messages Screen</Text>
 
       <View style={styles.button}>
-        <BubbleButton onPress={pressHandler}>We made it yerrrrr</BubbleButton>
+        <BubbleButton onPress={pressHandler}>msg</BubbleButton>
       </View>
     </View>
   );
 };
 
-export default Home;
+export default MessagesScreen;
 
 const styles = StyleSheet.create({
   screen: {
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginVertical: 20,
   },
-  signInButtonContainer: {
+  button: {
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 20,
