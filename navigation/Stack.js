@@ -4,7 +4,7 @@ import LandingScreen from '../screens/LandingScreen';
 import LoginScreen from '../screens/login/LoginScreen';
 import CreateAccount from '../screens/login/CreateAccount';
 import ForgotPassword from '../screens/login/ForgotPassword';
-import Dashboard from '../screens/dashboard/Dashboard';
+import Home from '../screens/home/Home';
 import Colors from '../constants/colors';
 
 const Stack = createNativeStackNavigator();
@@ -36,8 +36,8 @@ function StackNavigator() {
         }}
       />
       <Stack.Screen 
-        name='Dashboard' 
-        component={Dashboard}
+        name='Home' 
+        component={Home}
         options={{
           title: 'Home'
         }}

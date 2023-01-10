@@ -1,8 +1,8 @@
-import { StyleSheet, View, Text, Image } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 
 import BubbleButton from "../../components/ui/BubbleButton";
 
-const Dashboard = ({navigation}) => {
+const Home = ({navigation}) => {
 
   function pressHandler() {
     console.log('in home');
@@ -20,7 +20,7 @@ const Dashboard = ({navigation}) => {
   );
 };
 
-export default Dashboard;
+export default Home;
 
 const styles = StyleSheet.create({
   screen: {

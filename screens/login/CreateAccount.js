@@ -15,7 +15,7 @@ const CreateAccount = ({navigation}) => {
   const repassWord = useRef();
 
   function createAccountButtonHandler() {
-    navigation.navigate('Dashboard');
+    navigation.navigate('Home');
   };
 
   function loginButtonHandler() {
