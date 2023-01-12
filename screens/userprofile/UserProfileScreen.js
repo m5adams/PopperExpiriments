@@ -30,9 +30,10 @@ const UserProfileScreen = () => {
 
           <Text style={styles.bio}>UCSD 22'</Text>
         </View>
+        
+        <TopTabNavigator />
+      
       </ScrollView>
-
-      <TopTabNavigator />
     </SafeAreaView>
   );
 };
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     position: 'absolute',
-    right: 10,
+    right: 20,
   },
   icon: {
     marginTop: 20
