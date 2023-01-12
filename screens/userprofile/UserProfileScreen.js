@@ -1,43 +1,39 @@
-import React, { useState } from 'react';
-import { View, TextInput, Text, Button, StyleSheet, ScrollView } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, ScrollView, SafeAreaView, Image, Pressable } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
-import Colors from '../../constants/colors';
+import Colors from '../../constants/colors'; 
+import TopTabNavigator from '../../navigation/TopTab';
 
 const UserProfileScreen = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [age, setAge] = useState('');
 
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.profile}>My Profile</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Name"
-        value={name}
-        onChangeText={text => setName(text)}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        value={email}
-        onChangeText={text => setEmail(text)}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Phone"
-        value={phone}
-        onChangeText={text => setPhone(text)}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Age"
-        value={age}
-        onChangeText={text => setAge(text)}
-      />
-      <Button title="Save"/>
-    </ScrollView>
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        <View style={styles.userNameContainer}>
+          <View>
+            <Image style={styles.image} source={require('../../assets/images/bubble.png')}/>
+          </View>
+          <Text style={styles.userName}>miraiadams</Text>
+
+          <View style={styles.iconContainer} >
+            <Pressable style={({pressed}) => pressed ? styles.pressed : []}>
+              <Ionicons style={styles.icon} name='menu' color={Colors.accent500} size={34}/>
+            </Pressable>
+          </View>
+        </View>
+
+        <View style={styles.profileContentContainer}>
+          <Image style={styles.profilePic} source={require('../../assets/images/mirai.png')}/>
+          
+          <Text style={styles.name}>Mirai Adams</Text>
+
+          <Text style={styles.bio}>UCSD 22'</Text>
+        </View>
+      </ScrollView>
+
+      <TopTabNavigator />
+    </SafeAreaView>
   );
 };
 
@@ -49,19 +45,50 @@ const styles = StyleSheet.create({
     padding: 8,
     backgroundColor: Colors.primary500,
   },
-  input: {
-    height: 40,
-    width: '100%',
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginTop: 8,
-    padding: 8,
-    color: 'white'
+  userNameContainer: {
+    flexDirection: 'row',
+    marginTop: 10,
   },
-  profile: {
-    fontSize: 32,
+  image: {
+    height: 85,
+    width: 70,
+    marginHorizontal: 20
+  },
+  userName: {
+    fontSize: 26,
     color: 'white',
-    fontWeight: 'bold'
-  }
+    fontWeight: '300',
+    marginTop: 20,
+  },
+  iconContainer: {
+    position: 'absolute',
+    right: 10,
+  },
+  icon: {
+    marginTop: 20
+  },
+  profileContentContainer: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  profilePic: {
+    height: 150,
+    width: 150,
+  },
+  name: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: 'white',
+    marginTop: 20,
+  },
+  bio: {
+    fontSize: 18,
+    fontWeight: '300',
+    color: 'white',
+    marginBottom: 20,
+  },
+  pressed: {
+    opacity: 0.5
+  },
 });
 

@@ -4,7 +4,6 @@ import LandingScreen from '../screens/LandingScreen';
 import LoginScreen from '../screens/login/LoginScreen';
 import CreateAccount from '../screens/login/CreateAccount';
 import ForgotPassword from '../screens/login/ForgotPassword';
-import Home from '../screens/home/Home';
 import BottomTabNavigator from './BottomTab';
 import Colors from '../constants/colors';
 

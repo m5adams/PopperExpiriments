@@ -84,6 +84,7 @@ function BottomTabNavigator() {
         component={UserProfileScreen} 
         options={{
           title: 'My Profile',
+          headerShown: false,
           tabBarIcon: ({color}) => (
             <Ionicons name='person' color={color} size={28}/>
           ),
