@@ -3,37 +3,31 @@ import { View, Text, StyleSheet, ScrollView, SafeAreaView, Image, Pressable } fr
 import { Ionicons } from '@expo/vector-icons';
 
 import Colors from '../../constants/colors'; 
-import TopTabNavigator from '../../navigation/TopTab';
 
 const UserProfileScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <View style={styles.userNameContainer}>
-          <View>
-            <Image style={styles.image} source={require('../../assets/images/bubble.png')}/>
-          </View>
-          <Text style={styles.userName}>miraiadams</Text>
-
-          <View style={styles.iconContainer} >
-            <Pressable style={({pressed}) => pressed ? styles.pressed : []}>
-              <Ionicons style={styles.icon} name='menu' color={Colors.accent500} size={34}/>
-            </Pressable>
-          </View>
+      <View style={styles.userNameContainer}>
+        <View>
+          <Image style={styles.image} source={require('../../assets/images/bubble.png')}/>
         </View>
+        <Text style={styles.userName}>miraiadams</Text>
 
-        <View style={styles.profileContentContainer}>
-          <Image style={styles.profilePic} source={require('../../assets/images/mirai.png')}/>
-          
-          <Text style={styles.name}>Mirai Adams</Text>
-
-          <Text style={styles.bio}>UCSD 22'</Text>
+        <View style={styles.iconContainer} >
+          <Pressable style={({pressed}) => pressed ? styles.pressed : []}>
+            <Ionicons style={styles.icon} name='menu' color={Colors.accent500} size={34}/>
+          </Pressable>
         </View>
+      </View>
+
+      <View style={styles.profileContentContainer}>
+        <Image style={styles.profilePic} source={require('../../assets/images/mirai.png')}/>
         
-        <TopTabNavigator />
-      
-      </ScrollView>
+        <Text style={styles.name}>Mirai Adams</Text>
+
+        <Text style={styles.bio}>UCSD 22'</Text>
+      </View>
     </SafeAreaView>
   );
 };

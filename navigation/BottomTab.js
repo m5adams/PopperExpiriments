@@ -4,10 +4,10 @@ import { Ionicons } from '@expo/vector-icons';
 
 import Colors from '../constants/colors';
 import Home from '../screens/home/Home';
-import UserProfileScreen from '../screens/userprofile/UserProfileScreen';
 import MessagesScreen from '../screens/messages/MessagesScreen';
 import PopScreen from '../screens/pop/PopScreen';
-import NotificationsScreen from '../screens/notifications/NotificationsScreen';
+import TopTabNavigatorNotifs from './TopTabNotifications';
+import TopTabNavigatorUser from './TopTabUserProfile';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -17,6 +17,7 @@ function BottomTabNavigator() {
       screenOptions={{
         headerStyle: {backgroundColor: Colors.primary500},
         headerTintColor: 'white',
+        headerShown: false,
         tabBarActiveTintColor: Colors.accent500,
         tabBarInactiveTintColor: 'white',
         tabBarStyle: {backgroundColor: Colors.primary500},
@@ -35,7 +36,7 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen 
         name="Notifications" 
-        component={NotificationsScreen} 
+        component={TopTabNavigatorNotifs} 
         options={{
           title: 'Notifications',
           tabBarIcon: ({color}) => (
@@ -81,10 +82,9 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen 
         name="UserProfile" 
-        component={UserProfileScreen} 
+        component={TopTabNavigatorUser} 
         options={{
           title: 'My Profile',
-          headerShown: false,
           tabBarIcon: ({color}) => (
             <Ionicons name='person' color={color} size={28}/>
           ),
