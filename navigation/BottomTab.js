@@ -4,9 +4,9 @@ import { Ionicons } from '@expo/vector-icons';
 
 import Colors from '../constants/colors';
 import Home from '../screens/home/Home';
-import MessagesScreen from '../screens/messages/MessagesScreen';
-import PopScreen from '../screens/pop/PopScreen';
 import TopTabNavigatorNotifs from './TopTabNotifications';
+import PopScreen from '../screens/pop/PopScreen';
+import MessagesScreen from '../screens/messages/MessagesScreen';
 import TopTabNavigatorUser from './TopTabUserProfile';
 
 const BottomTab = createBottomTabNavigator();

@@ -1,13 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, ScrollView } from 'react-native';
 import React from 'react';
 
 import Colors from '../../constants/colors';
 
 const UserMediaScreen = () => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Text style={styles.title}>Heres the Users Media</Text>
-    </View>
+    </ScrollView>
   );
 };
 

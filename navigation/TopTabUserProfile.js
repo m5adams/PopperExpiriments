@@ -2,9 +2,9 @@ import { StyleSheet, SafeAreaView } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 import Colors from '../constants/colors';
-import UserProfileScreen from '../screens/userprofile/UserFeedScreen';
 import UserFeedScreen from '../screens/userprofile/UserFeedScreen';
 import UserMediaScreen from '../screens/userprofile/UserMediaScreen';
+import UserProfileScreen from '../screens/userprofile/UserProfileScreen';
 
 const TopTab = createMaterialTopTabNavigator();
 
@@ -12,7 +12,7 @@ function TopTabNavigatorUser() {
   return (
     <SafeAreaView style={styles.container}>
 
-      <UserProfileScreen />
+      <UserProfileScreen/>
 
       <TopTab.Navigator screenOptions={{
           tabBarStyle: {
@@ -57,7 +57,6 @@ function TopTabNavigatorUser() {
         />
       </TopTab.Navigator>
     </SafeAreaView>
-
   );
 };
 
@@ -66,7 +65,6 @@ export default TopTabNavigatorUser;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 8,
     backgroundColor: Colors.primary500,
   },
 });

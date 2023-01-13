@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, SafeAreaView, Image, Pressable } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, Image, Pressable } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import Colors from '../../constants/colors'; 
@@ -7,7 +7,7 @@ import Colors from '../../constants/colors';
 const UserProfileScreen = () => {
 
   return (
-    <SafeAreaView style={styles.container}>
+    <>
       <View style={styles.userNameContainer}>
         <View>
           <Image style={styles.image} source={require('../../assets/images/bubble.png')}/>
@@ -28,18 +28,13 @@ const UserProfileScreen = () => {
 
         <Text style={styles.bio}>UCSD 22'</Text>
       </View>
-    </SafeAreaView>
+      </>
   );
 };
 
 export default UserProfileScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 8,
-    backgroundColor: Colors.primary500,
-  },
   userNameContainer: {
     flexDirection: 'row',
     marginTop: 10,
