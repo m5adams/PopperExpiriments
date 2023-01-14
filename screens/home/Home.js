@@ -1,6 +1,7 @@
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, SafeAreaView } from "react-native";
 
 import BubbleButton from "../../components/ui/BubbleButton";
+import Title from "../../components/ui/Title";
 import Colors from "../../constants/colors";
 
 const Home = ({navigation}) => {
@@ -10,24 +11,29 @@ const Home = ({navigation}) => {
   };
 
   return (
-    <View style={styles.screen}>
-      <Text style={styles.text}>Home Screen will go here</Text>
+    <SafeAreaView style={styles.container}>
+      <Title>Timeline</Title>
+      <View style={styles.screen}>
+        <Text style={styles.text}>Home Screen will go here</Text>
 
-      <View style={styles.button}>
-        <BubbleButton onPress={pressHandler}>We made it yerrrrr</BubbleButton>
+        <View style={styles.button}>
+          <BubbleButton onPress={pressHandler}>We made it yerrrrr</BubbleButton>
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
 export default Home;
 
 const styles = StyleSheet.create({
-  screen: {
+  container: {
     flex: 1,
+    backgroundColor: Colors.primary500,
+  },
+  screen: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: Colors.primary500,
   },
   text: {
     fontSize: 24,

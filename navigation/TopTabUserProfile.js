@@ -34,10 +34,10 @@ function TopTabNavigatorUser() {
               position: 'absolute',
               backgroundColor: Colors.accent500,
               height: 3,
-              width: 40,
+              width: 46,
               borderRadius: 30,
               marginBottom: 10,
-              left: 78
+              left: 75
             },
           }} 
         />
@@ -48,10 +48,10 @@ function TopTabNavigatorUser() {
             position: 'absolute',
             backgroundColor: Colors.accent500,
             height: 3,
-            width: 48,
+            width: 53,
             borderRadius: 30,
             marginBottom: 10,
-            left: 74
+            left: 71
           },
           }} 
         />

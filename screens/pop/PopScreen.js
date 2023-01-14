@@ -6,7 +6,7 @@ import Colors from "../../constants/colors";
 const PopScreen = ({navigation}) => {
 
   function pressHandler() {
-    // navigation.navigate('LoginScreen');
+    navigation.navigate('LoginScreen');
   };
 
   return (

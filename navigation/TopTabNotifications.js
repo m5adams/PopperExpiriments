@@ -32,10 +32,10 @@ function TopTabNavigatorNotifs() {
               position: 'absolute',
               backgroundColor: Colors.accent500,
               height: 3,
-              width: 30,
+              width: 33,
               borderRadius: 30,
               marginBottom: 10,
-              left: 83,
+              left: 81,
             },
           }} 
         />
@@ -46,10 +46,10 @@ function TopTabNavigatorNotifs() {
             position: 'absolute',
             backgroundColor: Colors.accent500,
             height: 3,
-            width: 57,
+            width: 60,
             borderRadius: 30,
             marginBottom: 10,
-            left: 70,
+            left: 68,
           },
           }} 
         />

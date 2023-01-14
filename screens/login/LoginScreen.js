@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { StyleSheet, ScrollView, View, Text, TextInput, Pressable, Image, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Pressable, Image, KeyboardAvoidingView } from 'react-native';
 
 import Divider from '../../components/ui/Divider';
 import Colors from '../../constants/colors';
