@@ -30,7 +30,8 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     marginTop: 20,
     height: 50,
-    width: '85%'
+    width: '85%',
+    marginBottom: 18
   },
   searchIcon: {
     padding: 10,

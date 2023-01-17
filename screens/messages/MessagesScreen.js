@@ -1,4 +1,4 @@
-import { StyleSheet, SafeAreaView, TextInput, View } from "react-native";
+import { StyleSheet, SafeAreaView, TextInput, View, ScrollView } from "react-native";
 
 import Title from "../../components/ui/Title";
 import Colors from "../../constants/colors";
@@ -9,18 +9,30 @@ import FeedCard from "../../components/ui/FeedCard";
 const MessagesScreen = ({navigation}) => {
 
   return (
-    <KeyBoardComponent>
-      <SafeAreaView style={styles.container}>
-        <Title>Messages</Title>
-        
-        <View style={styles.searchBarContainer}>
-          <SearchBar />
-        </View>
+    <SafeAreaView style={styles.container}>
+      <KeyBoardComponent>
+        <ScrollView style={styles.container}>
+          <Title>Messages</Title>
+          <View style={styles.searchBarContainer}>
+            <SearchBar />
+          </View>
 
-        <FeedCard />
+        
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
       
-      </SafeAreaView>
-    </KeyBoardComponent>
+        </ScrollView>
+      </KeyBoardComponent>
+    </SafeAreaView>
   );
 };
 
