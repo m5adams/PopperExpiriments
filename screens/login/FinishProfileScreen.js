@@ -12,6 +12,7 @@ import {
 import FormButton from "../../components/ui/FormButton";
 import UploadImage from "../../components/functionality/UploadImage";
 import KeyBoardComponent from "../../components/functionality/KeyboardComponent";
+import BubbleButton from "../../components/ui/BubbleButton";
 
 const FinishProfileScreen = () => {
   const [name, setName] = useState();
@@ -81,6 +82,10 @@ const FinishProfileScreen = () => {
               labelValue={phone}
               onChangeText={(text) => setPhone(text)}
             />
+
+            <View style={styles.createAccountButtonContainer}>
+              <BubbleButton>Finish</BubbleButton>
+            </View>
           </KeyboardAvoidingView>
         </ScrollView>
       </KeyBoardComponent>
@@ -98,8 +103,14 @@ const styles = StyleSheet.create({
     height: 85,
     width: 70,
     marginHorizontal: 20,
+    marginTop: 70,
   },
   imageContainer: {
     alignItems: "center",
+  },
+  createAccountButtonContainer: {
+    alignItems: "center",
+    borderRadius: 100,
+    marginTop: 16,
   },
 });

@@ -103,7 +103,7 @@ const LoginScreen = ({ navigation }) => {
               </Text>
             </Pressable>
             <View style={styles.logInContainer}>
-              <Text style={{ color: "white", fontSize: "14", marginRight: 5 }}>
+              <Text style={{ color: "white", fontSize: 14, marginRight: 5 }}>
                 Don't have an Account?
               </Text>
               <Pressable

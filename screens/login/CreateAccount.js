@@ -121,7 +121,7 @@ const CreateAccount = ({ navigation }) => {
           </View>
 
           <View style={styles.logInContainer}>
-            <Text style={{ color: "white", fontSize: "14", marginRight: 5 }}>
+            <Text style={{ color: "white", fontSize: 14, marginRight: 5 }}>
               Already have an Account?
             </Text>
             <Pressable

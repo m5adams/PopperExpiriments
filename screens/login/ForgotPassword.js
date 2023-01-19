@@ -58,7 +58,7 @@ const ForgotPassword = ({ navigation }) => {
           {/* Other Sign in Options */}
 
           <View style={styles.logInContainer}>
-            <Text style={{ color: "white", fontSize: "14", marginRight: 5 }}>
+            <Text style={{ color: "white", fontSize: 14, marginRight: 5 }}>
               Already have an Account?
             </Text>
             <Pressable
