@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LandingScreen from '../screens/LandingScreen';
 import LoginScreen from '../screens/login/LoginScreen';
 import CreateAccount from '../screens/login/CreateAccount';
+import FinishProfileScreen from '../screens/login/FinishProfileScreen';
 import ForgotPassword from '../screens/login/ForgotPassword';
 import BottomTabNavigator from './BottomTab';
 import Colors from '../constants/colors';
@@ -33,6 +34,13 @@ function StackNavigator() {
       <Stack.Screen 
         name='CreateAccount' 
         component={CreateAccount}
+        options={{
+          gestureEnabled: false
+        }}
+      />
+      <Stack.Screen 
+        name='FinishProfile' 
+        component={FinishProfileScreen}
         options={{
           gestureEnabled: false
         }}

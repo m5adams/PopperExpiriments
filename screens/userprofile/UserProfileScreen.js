@@ -22,11 +22,22 @@ const UserProfileScreen = () => {
       </View>
 
       <View style={styles.profileContentContainer}>
-        <Image style={styles.profilePic} source={require('../../assets/images/mirai.png')}/>
-        
-        <Text style={styles.name}>Mirai Adams</Text>
 
-        <Text style={styles.bio}>UCSD 22'</Text>
+        <View style={{flexDirection: 'row'}}>
+          <View style={{flex: 1, marginLeft: 20}}>
+            <Image style={styles.profilePic} source={require('../../assets/images/mirai.png')}/>
+          </View>
+
+          <View style={{flex: 2, alignItems: 'center'}}>
+            <Text style={styles.name}>Mirai Adams</Text>
+
+            <Text style={styles.bio}>UCSD 22'</Text>
+          </View>
+        </View>
+          <Text style={{fontSize: 32,
+    fontWeight: 'bold',
+    color: 'white',
+    marginTop: 20,}}>Friends List</Text>
       </View>
       </>
   );
@@ -62,8 +73,11 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   profilePic: {
-    height: 150,
-    width: 150,
+    height: 125,
+    width: 125,
+    borderWidth: 2,
+    borderColor: Colors.accent500,
+    borderRadius: 200
   },
   name: {
     fontSize: 32,
