@@ -3,11 +3,10 @@ import { StyleSheet, View, Text } from "react-native";
 import BubbleButton from "../../components/ui/BubbleButton";
 import Colors from "../../constants/colors";
 
-const PopScreen = ({navigation}) => {
-
+const PopScreen = ({ navigation }) => {
   function pressHandler() {
-    navigation.navigate('LoginScreen');
-  };
+    navigation.navigate("LoginScreen");
+  }
 
   return (
     <View style={styles.screen}>
@@ -25,12 +24,12 @@ export default PopScreen;
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     backgroundColor: Colors.primary500,
   },
   imageContainer: {
-    alignItems: 'center'
+    alignItems: "center",
   },
   image: {
     marginHorizontal: 20,
@@ -40,14 +39,14 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 24,
-    fontWeight: 'bold',
-    color: 'white',
-    textAlign: 'center',
+    fontWeight: "bold",
+    color: "white",
+    textAlign: "center",
     marginVertical: 20,
   },
   button: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     marginTop: 20,
     borderRadius: 100,
   },

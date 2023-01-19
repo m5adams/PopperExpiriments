@@ -1,9 +1,17 @@
-import React, {useState} from 'react';
-import { StyleSheet, Text, View, ScrollView, Image, SafeAreaView, KeyboardAvoidingView } from 'react-native';
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Image,
+  SafeAreaView,
+  KeyboardAvoidingView,
+} from "react-native";
 
-import FormButton from '../../components/ui/FormButton';
-import UploadImage from '../../components/functionality/UploadImage';
-import KeyBoardComponent from '../../components/functionality/KeyboardComponent';
+import FormButton from "../../components/ui/FormButton";
+import UploadImage from "../../components/functionality/UploadImage";
+import KeyBoardComponent from "../../components/functionality/KeyboardComponent";
 
 const FinishProfileScreen = () => {
   const [name, setName] = useState();
@@ -15,30 +23,37 @@ const FinishProfileScreen = () => {
     <SafeAreaView style={styles.screen}>
       <KeyBoardComponent>
         <ScrollView style={styles.screen}>
-          <KeyboardAvoidingView style={styles.screen} behavior="position" keyboardVerticalOffset={-100}>
+          <KeyboardAvoidingView
+            style={styles.screen}
+            behavior="position"
+            keyboardVerticalOffset={-100}
+          >
             <View>
-              <Image style={styles.bubbleImage} source={require('../../assets/images/bubble.png')}/>
+              <Image
+                style={styles.bubbleImage}
+                source={require("../../assets/images/bubble.png")}
+              />
             </View>
 
             <View style={styles.imageContainer}>
               <UploadImage />
             </View>
 
-            <FormButton 
+            <FormButton
               returnKeyType="next"
               placeholderText="Name"
               labelValue={name}
               onChangeText={(text) => setName(text)}
               autoCorrect={false}
             />
-            <FormButton 
+            <FormButton
               returnKeyType="next"
               placeholderText="Username"
               labelValue={userName}
               onChangeText={(text) => setUserName(text)}
               autoCorrect={false}
             />
-            <FormButton 
+            <FormButton
               returnKeyType="next"
               placeholderText="Email"
               labelValue={email}
@@ -47,20 +62,20 @@ const FinishProfileScreen = () => {
               autoCapitalize="none"
               autoCorrect={false}
             />
-            <FormButton 
+            <FormButton
               returnKeyType="next"
               placeholderText="Phone"
               labelValue={phone}
               onChangeText={(text) => setPhone(text)}
               keyboardType="phone-pad"
             />
-            <FormButton 
+            <FormButton
               returnKeyType="next"
               placeholderText="Bio"
               labelValue={phone}
               onChangeText={(text) => setPhone(text)}
             />
-            <FormButton 
+            <FormButton
               returnKeyType="next"
               placeholderText="Drink of Choice"
               labelValue={phone}
@@ -77,14 +92,14 @@ export default FinishProfileScreen;
 
 const styles = StyleSheet.create({
   screen: {
-    flex: 1
+    flex: 1,
   },
   bubbleImage: {
     height: 85,
     width: 70,
-    marginHorizontal: 20
+    marginHorizontal: 20,
   },
   imageContainer: {
-    alignItems: 'center'
+    alignItems: "center",
   },
 });

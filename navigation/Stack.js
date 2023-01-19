@@ -1,66 +1,67 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import LandingScreen from '../screens/LandingScreen';
-import LoginScreen from '../screens/login/LoginScreen';
-import CreateAccount from '../screens/login/CreateAccount';
-import FinishProfileScreen from '../screens/login/FinishProfileScreen';
-import ForgotPassword from '../screens/login/ForgotPassword';
-import BottomTabNavigator from './BottomTab';
-import Colors from '../constants/colors';
+import LandingScreen from "../screens/LandingScreen";
+import LoginScreen from "../screens/login/LoginScreen";
+import CreateAccount from "../screens/login/CreateAccount";
+import FinishProfileScreen from "../screens/login/FinishProfileScreen";
+import ForgotPassword from "../screens/login/ForgotPassword";
+import BottomTabNavigator from "./BottomTab";
+import Colors from "../constants/colors";
 
 const Stack = createNativeStackNavigator();
 
 function StackNavigator() {
   return (
-    <Stack.Navigator screenOptions={{
+    <Stack.Navigator
+      screenOptions={{
         headerShown: false,
-        contentStyle: {backgroundColor: Colors.primary500}
+        contentStyle: { backgroundColor: Colors.primary500 },
       }}
     >
-      <Stack.Screen 
-        name='LandingScreen' 
+      <Stack.Screen
+        name="LandingScreen"
         component={LandingScreen}
         options={{
-          gestureEnabled: false
+          gestureEnabled: false,
         }}
       />
-      <Stack.Screen 
-        name='LoginScreen' 
+      <Stack.Screen
+        name="LoginScreen"
         component={LoginScreen}
         options={{
-          gestureEnabled: false
+          gestureEnabled: false,
         }}
       />
-      <Stack.Screen 
-        name='CreateAccount' 
+      <Stack.Screen
+        name="CreateAccount"
         component={CreateAccount}
         options={{
-          gestureEnabled: false
+          gestureEnabled: false,
         }}
       />
-      <Stack.Screen 
-        name='FinishProfile' 
+      <Stack.Screen
+        name="FinishProfile"
         component={FinishProfileScreen}
         options={{
-          gestureEnabled: false
+          gestureEnabled: false,
         }}
       />
-      <Stack.Screen 
-        name='ForgotPassword' 
+      <Stack.Screen
+        name="ForgotPassword"
         component={ForgotPassword}
         options={{
-          presentation: 'modal'
+          presentation: "modal",
         }}
       />
-      <Stack.Screen 
-        name='HomeScreen' 
+      <Stack.Screen
+        name="HomeScreen"
         component={BottomTabNavigator}
         options={{
-          gestureEnabled: false
+          gestureEnabled: false,
         }}
       />
     </Stack.Navigator>
   );
-};
+}
 
 export default StackNavigator;

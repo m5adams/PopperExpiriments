@@ -1,5 +1,5 @@
-import React from 'react';
-import { Keyboard, TouchableWithoutFeedback, StyleSheet } from 'react-native';
+import React from "react";
+import { Keyboard, TouchableWithoutFeedback, StyleSheet } from "react-native";
 
 const KeyBoardComponent = ({ children }) => (
   <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -11,6 +11,6 @@ export default KeyBoardComponent;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
-  }
+    flex: 1,
+  },
 });

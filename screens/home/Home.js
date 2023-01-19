@@ -4,11 +4,10 @@ import BubbleButton from "../../components/ui/BubbleButton";
 import Title from "../../components/ui/Title";
 import Colors from "../../constants/colors";
 
-const Home = ({navigation}) => {
-
+const Home = ({ navigation }) => {
   function pressHandler() {
-    console.log('in home');
-  };
+    console.log("in home");
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -32,19 +31,19 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary500,
   },
   screen: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   text: {
     fontSize: 24,
-    fontWeight: 'bold',
-    color: 'white',
-    textAlign: 'center',
+    fontWeight: "bold",
+    color: "white",
+    textAlign: "center",
     marginVertical: 20,
   },
   button: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     marginTop: 20,
     borderRadius: 100,
   },

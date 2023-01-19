@@ -1,9 +1,9 @@
-import React from 'react';
-import { StyleSheet, View, TextInput } from 'react-native';
+import React from "react";
+import { StyleSheet, View, TextInput } from "react-native";
 
-import Colors from '../../constants/colors';
+import Colors from "../../constants/colors";
 
-const FormButton = ({labelValue, placeholderText, iconType, ...rest}) => {
+const FormButton = ({ labelValue, placeholderText, iconType, ...rest }) => {
   return (
     <View style={styles.inputContainer}>
       <TextInput
@@ -12,7 +12,7 @@ const FormButton = ({labelValue, placeholderText, iconType, ...rest}) => {
         numberOfLines={1}
         placeholder={placeholderText}
         value={labelValue}
-        placeholderTextColor={'gray'}
+        placeholderTextColor={"gray"}
         {...rest}
       />
     </View>
@@ -23,19 +23,19 @@ export default FormButton;
 
 const styles = StyleSheet.create({
   inputContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     margin: 8,
     borderRadius: 12,
   },
   input: {
     height: 50,
-    width: '85%',
+    width: "85%",
     borderColor: Colors.accent500,
     borderWidth: 1,
     borderRadius: 12,
     marginTop: 8,
     padding: 8,
-    backgroundColor: 'white'
+    backgroundColor: "white",
   },
 });

@@ -1,12 +1,12 @@
-import { StyleSheet, Text, ScrollView, FlatList } from 'react-native';
-import React from 'react';
+import { StyleSheet, Text, ScrollView, FlatList } from "react-native";
+import React from "react";
 
-import Colors from '../../constants/colors';
-import FeedCard from '../../components/ui/FeedCard';
+import Colors from "../../constants/colors";
+import FeedCard from "../../components/ui/FeedCard";
 
 const EventNotificationsScreen = () => {
   return (
-    <ScrollView style={styles.container}> 
+    <ScrollView style={styles.container}>
       <FeedCard />
       <FeedCard />
       <FeedCard />
@@ -19,7 +19,7 @@ const EventNotificationsScreen = () => {
       <FeedCard />
       <FeedCard />
 
-      <Text style={{color: 'white'}}>EventNotificationsScreen</Text>
+      <Text style={{ color: "white" }}>EventNotificationsScreen</Text>
     </ScrollView>
   );
 };

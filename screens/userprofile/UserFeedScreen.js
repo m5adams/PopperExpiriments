@@ -1,7 +1,7 @@
-import React from 'react';
-import { StyleSheet, Text, ScrollView } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, ScrollView } from "react-native";
 
-import Colors from '../../constants/colors';
+import Colors from "../../constants/colors";
 
 const UserFeedScreen = () => {
   return (
@@ -19,9 +19,9 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary500,
   },
   title: {
-    textAlign: 'center',
-    color: 'white',
-    fontWeight: '300',
-    fontSize: 32
+    textAlign: "center",
+    color: "white",
+    fontWeight: "300",
+    fontSize: 32,
   },
 });

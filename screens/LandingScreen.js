@@ -2,16 +2,18 @@ import { StyleSheet, View, Text, Image } from "react-native";
 
 import BubbleButton from "../components/ui/BubbleButton";
 
-const LandingScreen = ({navigation}) => {
-
+const LandingScreen = ({ navigation }) => {
   function pressHandler() {
-    navigation.navigate('LoginScreen');
-  };
+    navigation.navigate("LoginScreen");
+  }
 
   return (
     <View style={styles.screen}>
       <View style={styles.imageContainer}>
-        <Image style={styles.image} source={require('../assets/images/popper.png')}/>
+        <Image
+          style={styles.image}
+          source={require("../assets/images/popper.png")}
+        />
       </View>
 
       <Text style={styles.text}>Welcome to Popper!</Text>
@@ -28,11 +30,11 @@ export default LandingScreen;
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center",
   },
   imageContainer: {
-    alignItems: 'center'
+    alignItems: "center",
   },
   image: {
     marginHorizontal: 20,
@@ -42,14 +44,14 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 24,
-    fontWeight: 'bold',
-    color: 'white',
-    textAlign: 'center',
+    fontWeight: "bold",
+    color: "white",
+    textAlign: "center",
     marginVertical: 20,
   },
   button: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     marginTop: 20,
     borderRadius: 100,
   },
