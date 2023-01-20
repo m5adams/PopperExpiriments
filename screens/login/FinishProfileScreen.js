@@ -13,15 +13,20 @@ import FormButton from "../../components/ui/FormButton";
 import UploadImage from "../../components/functionality/UploadImage";
 import KeyBoardComponent from "../../components/functionality/KeyboardComponent";
 import BubbleButton from "../../components/ui/BubbleButton";
+import GlobalStyles from "../../constants/GlobalStyles";
 
-const FinishProfileScreen = () => {
+const FinishProfileScreen = ({ navigation }) => {
   const [name, setName] = useState();
   const [userName, setUserName] = useState();
   const [email, setEmail] = useState();
   const [phone, setPhone] = useState();
 
+  function finishButtonHandler() {
+    navigation.navigate("HomeScreen");
+  }
+
   return (
-    <SafeAreaView style={styles.screen}>
+    <SafeAreaView style={GlobalStyles.AndroidSafeArea}>
       <KeyBoardComponent>
         <ScrollView style={styles.screen}>
           <KeyboardAvoidingView
@@ -84,7 +89,7 @@ const FinishProfileScreen = () => {
             />
 
             <View style={styles.createAccountButtonContainer}>
-              <BubbleButton>Finish</BubbleButton>
+              <BubbleButton onPress={finishButtonHandler}>Finish</BubbleButton>
             </View>
           </KeyboardAvoidingView>
         </ScrollView>
@@ -103,7 +108,6 @@ const styles = StyleSheet.create({
     height: 85,
     width: 70,
     marginHorizontal: 20,
-    marginTop: 70,
   },
   imageContainer: {
     alignItems: "center",

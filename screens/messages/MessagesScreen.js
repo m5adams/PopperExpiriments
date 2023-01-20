@@ -11,10 +11,11 @@ import Colors from "../../constants/colors";
 import SearchBar from "../../components/ui/SearchBar";
 import KeyBoardComponent from "../../components/functionality/KeyboardComponent";
 import FeedCard from "../../components/ui/FeedCard";
+import GlobalStyles from "../../constants/GlobalStyles";
 
 const MessagesScreen = ({ navigation }) => {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={GlobalStyles.AndroidSafeArea}>
       <KeyBoardComponent>
         <ScrollView style={styles.container}>
           <Title>Messages</Title>

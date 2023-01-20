@@ -5,12 +5,13 @@ import Colors from "../constants/colors";
 import AllNotificationsScreen from "../screens/notifications/AllNotificationsScreen";
 import EventNotificationsScreen from "../screens/notifications/EventNotificationsScreen";
 import Title from "../components/ui/Title";
+import GlobalStyles from "../constants/GlobalStyles";
 
 const TopTab = createMaterialTopTabNavigator();
 
 function TopTabNavigatorNotifs() {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={GlobalStyles.AndroidSafeArea}>
       <Title>Notifications</Title>
 
       <TopTab.Navigator

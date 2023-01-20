@@ -5,12 +5,13 @@ import Colors from "../constants/colors";
 import UserFeedScreen from "../screens/userprofile/UserFeedScreen";
 import UserMediaScreen from "../screens/userprofile/UserMediaScreen";
 import UserProfileScreen from "../screens/userprofile/UserProfileScreen";
+import GlobalStyles from "../constants/GlobalStyles";
 
 const TopTab = createMaterialTopTabNavigator();
 
 function TopTabNavigatorUser() {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={GlobalStyles.AndroidSafeArea}>
       <UserProfileScreen />
 
       <TopTab.Navigator

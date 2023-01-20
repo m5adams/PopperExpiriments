@@ -1,8 +1,18 @@
-import { StyleSheet, View, Text, SafeAreaView } from "react-native";
+import {
+  StyleSheet,
+  View,
+  ScrollView,
+  SafeAreaView,
+  Image,
+  Text,
+  Pressable,
+} from "react-native";
 
 import BubbleButton from "../../components/ui/BubbleButton";
+import FeedCard from "../../components/ui/FeedCard";
 import Title from "../../components/ui/Title";
 import Colors from "../../constants/colors";
+import GlobalStyles from "../../constants/GlobalStyles";
 
 const Home = ({ navigation }) => {
   function pressHandler() {
@@ -10,15 +20,34 @@ const Home = ({ navigation }) => {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Title>Timeline</Title>
-      <View style={styles.screen}>
-        <Text style={styles.text}>Home Screen will go here</Text>
-
-        <View style={styles.button}>
-          <BubbleButton onPress={pressHandler}>We made it yerrrrr</BubbleButton>
-        </View>
-      </View>
+    <SafeAreaView style={GlobalStyles.AndroidSafeArea}>
+      <ScrollView style={styles.screen}>
+        <Title>Timeline</Title>
+        <FeedCard />
+        <FeedCard />
+        <FeedCard />
+        <FeedCard />
+        <FeedCard />
+        <FeedCard />
+        <FeedCard />
+        <FeedCard />
+        <FeedCard />
+        <FeedCard />
+        <FeedCard />
+        <FeedCard />
+      </ScrollView>
+      <Pressable
+        style={({ pressed }) =>
+          pressed ? styles.pressed : [styles.buttonContainer]
+        }
+        onPress={pressHandler}
+      >
+        <Image
+          style={styles.image}
+          source={require("../../assets/images/bubble.png")}
+        />
+        <Text style={styles.text}>+</Text>
+      </Pressable>
     </SafeAreaView>
   );
 };
@@ -31,8 +60,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary500,
   },
   screen: {
-    justifyContent: "center",
-    alignItems: "center",
+    //alignItems: "center",
   },
   text: {
     fontSize: 24,
@@ -41,10 +69,25 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginVertical: 20,
   },
-  button: {
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 20,
-    borderRadius: 100,
+  buttonContainer: {
+    alignItems: "flex-end",
+    marginVertical: 10,
+    marginRight: 10,
+  },
+  image: {
+    height: 85,
+    width: 70,
+  },
+  text: {
+    position: "absolute",
+    alignItems: "flex-end",
+    color: "white",
+    fontSize: 32,
+    fontWeight: "bold",
+    right: 25,
+    bottom: 25,
+  },
+  pressed: {
+    opacity: 0.5,
   },
 });
