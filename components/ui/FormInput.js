@@ -3,7 +3,7 @@ import { StyleSheet, View, TextInput } from "react-native";
 
 import Colors from "../../constants/colors";
 
-const FormButton = ({ labelValue, placeholderText, iconType, ...rest }) => {
+const FormInput = ({ labelValue, placeholderText, iconType, ...rest }) => {
   return (
     <View style={styles.inputContainer}>
       <TextInput
@@ -19,7 +19,7 @@ const FormButton = ({ labelValue, placeholderText, iconType, ...rest }) => {
   );
 };
 
-export default FormButton;
+export default FormInput;
 
 const styles = StyleSheet.create({
   inputContainer: {

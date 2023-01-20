@@ -7,8 +7,8 @@ const FeedDivider = ({ children }) => {
       style={{
         flexDirection: "row",
         alignItems: "center",
-        paddingTop: 18,
-        paddingBottom: 15,
+        paddingTop: 12,
+        paddingBottom: 4,
       }}
     >
       <View

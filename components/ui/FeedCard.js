@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
   cardContainer: {
     // paddingTop: 18,
     alignItems: "center",
+    marginTop: 10,
   },
   elementContainer: {
     flexDirection: "row",

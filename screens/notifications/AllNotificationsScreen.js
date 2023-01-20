@@ -18,8 +18,6 @@ const AllNotificationsScreen = () => {
       <FeedCard />
       <FeedCard />
       <FeedCard />
-
-      <Text style={{ color: "white" }}>AllNotificationsScreen</Text>
     </ScrollView>
   );
 };

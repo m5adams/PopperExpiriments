@@ -8,11 +8,11 @@ import {
   Pressable,
 } from "react-native";
 
-import BubbleButton from "../../components/ui/BubbleButton";
 import FeedCard from "../../components/ui/FeedCard";
 import Title from "../../components/ui/Title";
 import Colors from "../../constants/colors";
 import GlobalStyles from "../../constants/GlobalStyles";
+import CreateEvent from "./CreateEvent";
 
 const Home = ({ navigation }) => {
   function pressHandler() {
@@ -21,7 +21,7 @@ const Home = ({ navigation }) => {
 
   return (
     <SafeAreaView style={GlobalStyles.AndroidSafeArea}>
-      <ScrollView style={styles.screen}>
+      <ScrollView>
         <Title>Timeline</Title>
         <FeedCard />
         <FeedCard />
@@ -36,10 +36,9 @@ const Home = ({ navigation }) => {
         <FeedCard />
         <FeedCard />
       </ScrollView>
-      <Pressable
-        style={({ pressed }) =>
-          pressed ? styles.pressed : [styles.buttonContainer]
-        }
+      <CreateEvent />
+      {/* <Pressable
+        style={({ pressed }) => (pressed ? styles.pressed : [])}
         onPress={pressHandler}
       >
         <Image
@@ -47,7 +46,7 @@ const Home = ({ navigation }) => {
           source={require("../../assets/images/bubble.png")}
         />
         <Text style={styles.text}>+</Text>
-      </Pressable>
+      </Pressable> */}
     </SafeAreaView>
   );
 };
@@ -59,35 +58,23 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.primary500,
   },
-  screen: {
-    //alignItems: "center",
-  },
-  text: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "white",
-    textAlign: "center",
-    marginVertical: 20,
-  },
-  buttonContainer: {
-    alignItems: "flex-end",
-    marginVertical: 10,
-    marginRight: 10,
-  },
   image: {
-    height: 85,
-    width: 70,
+    position: "absolute",
+    right: 10,
+    bottom: 10,
+    height: 80,
+    width: 65,
   },
   text: {
     position: "absolute",
     alignItems: "flex-end",
     color: "white",
-    fontSize: 32,
+    fontSize: 30,
     fontWeight: "bold",
-    right: 25,
-    bottom: 25,
+    right: 33.5,
+    bottom: 33,
   },
   pressed: {
-    opacity: 0.5,
+    opacity: 0.8,
   },
 });

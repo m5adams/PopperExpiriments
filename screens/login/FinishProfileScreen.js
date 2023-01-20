@@ -9,7 +9,7 @@ import {
   KeyboardAvoidingView,
 } from "react-native";
 
-import FormButton from "../../components/ui/FormButton";
+import FormInput from "../../components/ui/FormInput";
 import UploadImage from "../../components/functionality/UploadImage";
 import KeyBoardComponent from "../../components/functionality/KeyboardComponent";
 import BubbleButton from "../../components/ui/BubbleButton";
@@ -20,6 +20,8 @@ const FinishProfileScreen = ({ navigation }) => {
   const [userName, setUserName] = useState();
   const [email, setEmail] = useState();
   const [phone, setPhone] = useState();
+  const [bio, setBio] = useState();
+  const [drink, setDrink] = useState();
 
   function finishButtonHandler() {
     navigation.navigate("HomeScreen");
@@ -45,21 +47,21 @@ const FinishProfileScreen = ({ navigation }) => {
               <UploadImage />
             </View>
 
-            <FormButton
+            <FormInput
               returnKeyType="next"
               placeholderText="Name"
               labelValue={name}
               onChangeText={(text) => setName(text)}
               autoCorrect={false}
             />
-            <FormButton
+            <FormInput
               returnKeyType="next"
               placeholderText="Username"
               labelValue={userName}
               onChangeText={(text) => setUserName(text)}
               autoCorrect={false}
             />
-            <FormButton
+            <FormInput
               returnKeyType="next"
               placeholderText="Email"
               labelValue={email}
@@ -68,24 +70,24 @@ const FinishProfileScreen = ({ navigation }) => {
               autoCapitalize="none"
               autoCorrect={false}
             />
-            <FormButton
+            <FormInput
               returnKeyType="next"
               placeholderText="Phone"
               labelValue={phone}
               onChangeText={(text) => setPhone(text)}
               keyboardType="phone-pad"
             />
-            <FormButton
+            <FormInput
               returnKeyType="next"
               placeholderText="Bio"
-              labelValue={phone}
-              onChangeText={(text) => setPhone(text)}
+              labelValue={bio}
+              onChangeText={(text) => setBio(text)}
             />
-            <FormButton
+            <FormInput
               returnKeyType="next"
               placeholderText="Drink of Choice"
-              labelValue={phone}
-              onChangeText={(text) => setPhone(text)}
+              labelValue={drink}
+              onChangeText={(text) => setDrink(text)}
             />
 
             <View style={styles.createAccountButtonContainer}>
