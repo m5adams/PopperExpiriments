@@ -8,60 +8,87 @@ import {
   View,
   Image,
 } from "react-native";
+import GestureRecognizer from "react-native-swipe-gestures";
 
 import Title from "../../components/ui/Title";
+import SubTitle from "../../components/ui/SubTitle";
 import Colors from "../../constants/colors";
 import FormInput from "../../components/ui/FormInput";
+import PoppersDropdown from "../../components/ui/PoppersDropdown";
 
 const CreateEvent = () => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
-        }}
+      <GestureRecognizer
+        style={{ flex: 1 }}
+        onSwipeDown={() => setModalVisible(false)}
       >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Title>Create Event</Title>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            Alert.alert("Modal has been closed.");
+            setModalVisible(!modalVisible);
+          }}
+        >
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Title>Create Event</Title>
 
-            <Text style={styles.subTitle}>Title</Text>
+              <SubTitle>Title</SubTitle>
 
-            <FormInput placeholderText={"Title"} />
+              <FormInput placeholderText={"Title"} />
 
-            <Text style={styles.subTitle}>Location</Text>
+              <SubTitle>Location</SubTitle>
 
-            <FormInput placeholderText={"Location"} />
+              <FormInput placeholderText={"Location"} />
 
-            <Text style={styles.subTitle}>Date & Time</Text>
+              <SubTitle>Date & Time</SubTitle>
 
-            <FormInput placeholderText={"Date"} />
-            <FormInput placeholderText={"Time"} />
+              <FormInput placeholderText={"Date"} />
+              <View style={styles.dateTimeContainer}>
+                <View style={{ flex: 1 }}>
+                  <FormInput
+                    placeholderText={"To"}
+                    largeStyle={{ marginLeft: 25 }}
+                  />
+                </View>
+                <View style={{ flex: 1 }}>
+                  <FormInput
+                    placeholderText={"From"}
+                    largeStyle={{ marginRight: 25 }}
+                  />
+                </View>
+              </View>
 
-            <Text style={styles.subTitle}>Description</Text>
-            <FormInput
-              placeholderText={"Description"}
-              multiline
-              numberOfLines={4}
-              maxLength={80}
-            />
-            <Text style={styles.subTitle}>Invite Poppers</Text>
-            <FormInput placeholderText={"Invite Them"} />
+              <SubTitle>Description</SubTitle>
+              <FormInput
+                placeholderText={"Description"}
+                multiline
+                editable
+                numberOfLines={4}
+                maxLength={80}
+                largeStyle={{ textAlignVertical: "top" }}
+              />
 
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable>
+              <SubTitle>Invite Poppers</SubTitle>
+
+              <View style={styles.inviteContainer}>
+                <PoppersDropdown />
+              </View>
+
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => setModalVisible(!modalVisible)}
+              >
+                <Text style={styles.textStyle}>Hide Modal</Text>
+              </Pressable>
+            </View>
           </View>
-        </View>
-      </Modal>
+        </Modal>
+      </GestureRecognizer>
 
       <Pressable
         style={({ pressed }) => (pressed ? styles.pressed : [])}
@@ -88,7 +115,6 @@ const styles = StyleSheet.create({
   },
   modalView: {
     flex: 1,
-    // alignItems: "center",
     marginTop: 20,
   },
   subTitle: {
@@ -131,5 +157,12 @@ const styles = StyleSheet.create({
   },
   pressed: {
     opacity: 0.8,
+  },
+  dateTimeContainer: {
+    justifyContent: "center",
+    flexDirection: "row",
+  },
+  inviteContainer: {
+    justifyContent: "center",
   },
 });

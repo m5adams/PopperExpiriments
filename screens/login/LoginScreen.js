@@ -13,6 +13,7 @@ import Divider from "../../components/ui/Divider";
 import Colors from "../../constants/colors";
 import BubbleButton from "../../components/ui/BubbleButton";
 import KeyBoardComponent from "../../components/functionality/KeyboardComponent";
+import SubTitle from "../../components/ui/SubTitle";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -34,14 +35,11 @@ const LoginScreen = ({ navigation }) => {
   return (
     <KeyBoardComponent>
       <View style={styles.screen}>
-        {/* <ScrollView style={styles.screen} keyboardDismissMode="on-drag"> */}
         <KeyboardAvoidingView
           style={styles.screen}
           behavior="position"
           keyboardVerticalOffset={-250}
         >
-          {/* Popper Logo and Motto Text */}
-
           <View style={styles.imageContainer}>
             <Image
               style={styles.image}
@@ -49,12 +47,8 @@ const LoginScreen = ({ navigation }) => {
             />
           </View>
 
-          {/* Login Text Inputs and Buttons */}
-
           <View style={{ marginTop: 20 }}>
-            <Text style={styles.loginText}>
-              Login with your Popper Account:
-            </Text>
+            <SubTitle>Login with your Popper Account:</SubTitle>
 
             <View style={styles.inputContainer}>
               <TextInput
@@ -122,13 +116,9 @@ const LoginScreen = ({ navigation }) => {
             </View>
           </View>
 
-          {/* Horizontal Divider */}
-
           <View style={{ marginTop: 30 }}>
             <Divider>OR</Divider>
           </View>
-
-          {/* Other Sign-In Options */}
 
           <View>
             <Text style={styles.signInWith}>Sign in with: </Text>
@@ -190,7 +180,6 @@ const LoginScreen = ({ navigation }) => {
             </View>
           </View>
         </KeyboardAvoidingView>
-        {/* </ScrollView> */}
       </View>
     </KeyBoardComponent>
   );
@@ -212,11 +201,9 @@ const styles = StyleSheet.create({
     height: 200,
   },
   loginText: {
-    width: "90%",
     paddingLeft: 40,
     marginTop: 10,
     color: "white",
-    alignContent: "flex-end",
   },
   inputContainer: {
     justifyContent: "center",

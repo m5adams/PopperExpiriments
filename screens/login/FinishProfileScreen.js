@@ -80,8 +80,13 @@ const FinishProfileScreen = ({ navigation }) => {
             <FormInput
               returnKeyType="next"
               placeholderText="Bio"
+              multiline
+              editable
+              numberOfLines={4}
+              maxLength={80}
               labelValue={bio}
               onChangeText={(text) => setBio(text)}
+              largeStyle={{ textAlignVertical: "top" }}
             />
             <FormInput
               returnKeyType="next"
