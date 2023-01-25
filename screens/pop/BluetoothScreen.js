@@ -9,7 +9,7 @@ const BluetoothScreen = ({ navigation }) => {
     navigation.navigate("LoginScreen");
   }
   function pressHandler2() {
-    navigation.navigate("BluetoothScreen");
+    navigation.navigate("PopScreen");
   }
 
   return (

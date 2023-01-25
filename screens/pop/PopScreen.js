@@ -8,6 +8,9 @@ const PopScreen = ({ navigation }) => {
   function pressHandler() {
     navigation.navigate("LoginScreen");
   }
+  function pressHandler2() {
+    navigation.navigate("BluetoothScreen");
+  }
 
   return (
     <SafeAreaView style={GlobalStyles.AndroidSafeArea}>
@@ -32,10 +35,7 @@ const PopScreen = ({ navigation }) => {
           <Text style={styles.text}>Scan other Popper's QR Codes</Text>
         </Pressable>
 
-        <Pressable
-          style={styles.button}
-          onPress={navigation.navigate("BluetoothScreen")}
-        >
+        <Pressable style={styles.button} onPress={pressHandler2}>
           <Text style={styles.text}>
             Connect with other Poppers through Bluetooth
           </Text>
