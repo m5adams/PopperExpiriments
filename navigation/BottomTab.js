@@ -5,9 +5,9 @@ import { Ionicons } from "@expo/vector-icons";
 import Colors from "../constants/colors";
 import Home from "../screens/home/Home";
 import TopTabNavigatorNotifs from "./TopTabNotifications";
-import PopScreen from "../screens/pop/PopScreen";
 import MessagesScreen from "../screens/messages/MessagesScreen";
 import TopTabNavigatorUser from "./TopTabUserProfile";
+import PopStackNavigator from "./PopStack";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -46,13 +46,13 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="Pop"
-        component={PopScreen}
+        component={PopStackNavigator}
         options={{
           title: "Pop",
           tabBarIcon: ({ color }) => (
             <View
               style={{
-                backgroundColor: Colors.primary500,
+                backgroundColor: "#7d9ac3",
                 width: 70,
                 height: 70,
                 justifyContent: "center",

@@ -31,8 +31,6 @@ const FeedCard = () => {
           </Text>
         </View>
       </View>
-
-      <FeedDivider />
     </View>
   );
 };
@@ -41,9 +39,13 @@ export default FeedCard;
 
 const styles = StyleSheet.create({
   cardContainer: {
-    // paddingTop: 18,
+    paddingTop: 18,
+    width: "90%",
     alignItems: "center",
     marginTop: 10,
+    backgroundColor: Colors.primary400,
+    borderRadius: 20,
+    paddingBottom: 30,
   },
   elementContainer: {
     flexDirection: "row",

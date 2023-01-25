@@ -1,12 +1,4 @@
-import {
-  StyleSheet,
-  View,
-  ScrollView,
-  SafeAreaView,
-  Image,
-  Text,
-  Pressable,
-} from "react-native";
+import { StyleSheet, ScrollView, SafeAreaView, View } from "react-native";
 
 import FeedCard from "../../components/ui/FeedCard";
 import Title from "../../components/ui/Title";
@@ -23,30 +15,22 @@ const Home = ({ navigation }) => {
     <SafeAreaView style={GlobalStyles.AndroidSafeArea}>
       <ScrollView>
         <Title>Timeline</Title>
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
+        <View style={{ alignItems: "center" }}>
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+        </View>
       </ScrollView>
       <CreateEvent />
-      {/* <Pressable
-        style={({ pressed }) => (pressed ? styles.pressed : [])}
-        onPress={pressHandler}
-      >
-        <Image
-          style={styles.image}
-          source={require("../../assets/images/bubble.png")}
-        />
-        <Text style={styles.text}>+</Text>
-      </Pressable> */}
     </SafeAreaView>
   );
 };
