@@ -19,7 +19,9 @@ const PoppersDropdown = () => {
 
   return (
     <MultipleSelectList
-      boxStyles={styles.input}
+      // boxStyles={styles.input}
+      // dropdownStyles={styles.input}
+      inputStyles={styles.input}
       setSelected={(val) => setSelected(val)}
       data={data}
       save="value"
@@ -42,4 +44,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     backgroundColor: "white",
   },
+  boxStyle: {},
 });

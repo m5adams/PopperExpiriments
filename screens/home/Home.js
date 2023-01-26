@@ -1,15 +1,28 @@
-import { StyleSheet, ScrollView, SafeAreaView, View } from "react-native";
+import { useCallback, useRef } from "react";
+import {
+  StyleSheet,
+  ScrollView,
+  SafeAreaView,
+  View,
+  Pressable,
+  Image,
+  Text,
+  useWindowDimensions,
+} from "react-native";
 
 import FeedCard from "../../components/ui/FeedCard";
 import Title from "../../components/ui/Title";
 import Colors from "../../constants/colors";
 import GlobalStyles from "../../constants/GlobalStyles";
 import CreateEvent from "./CreateEvent";
+import BottomSheet from "../../components/ui/BottomSheet";
 
 const Home = ({ navigation }) => {
-  function pressHandler() {
-    console.log("in home");
-  }
+  const { height } = useWindowDimensions();
+  const ref = useRef();
+  const onPress = useCallback(() => {
+    ref.current.expand();
+  }, []);
 
   return (
     <SafeAreaView style={GlobalStyles.AndroidSafeArea}>
@@ -18,19 +31,29 @@ const Home = ({ navigation }) => {
         <View style={{ alignItems: "center" }}>
           <FeedCard />
           <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
         </View>
       </ScrollView>
-      <CreateEvent />
+
+      <Pressable
+        style={({ pressed }) => (pressed ? styles.pressed : [])}
+        onPress={() => onPress()}
+      >
+        <Image
+          style={styles.image}
+          source={require("../../assets/images/bubble.png")}
+        />
+        <Text style={styles.text}>+</Text>
+      </Pressable>
+      <BottomSheet
+        ref={ref}
+        activeHeight={height * 0.8}
+        backgroundColor={"#DAD3C8"}
+        backDropColor={"black"}
+      >
+        <View style={{ alignItems: "center" }}>
+          <CreateEvent />
+        </View>
+      </BottomSheet>
     </SafeAreaView>
   );
 };

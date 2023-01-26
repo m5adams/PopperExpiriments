@@ -1,19 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { StyleSheet } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
-import Colors from './constants/colors';
-import StackNavigator from './navigation/Stack';
+import Colors from "./constants/colors";
+import StackNavigator from "./navigation/Stack";
 
 export default function App() {
   return (
-    <>
-      <StatusBar style='light'/>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <StatusBar style="light" />
       <NavigationContainer>
-        <StackNavigator/>
+        <StackNavigator />
       </NavigationContainer>
-    </>
+    </GestureHandlerRootView>
   );
 }
 
@@ -24,8 +25,8 @@ const styles = StyleSheet.create({
   },
 });
 
-
-
 //Junkyard
 
-{/* <Background style={styles.rootScreen}> </Background> */ }
+{
+  /* <Background style={styles.rootScreen}> </Background> */
+}

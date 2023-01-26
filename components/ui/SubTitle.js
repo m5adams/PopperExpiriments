@@ -1,18 +1,14 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text } from "react-native";
 
 const SubTitle = ({ children }) => {
-  return (
-    <View>
-      <Text style={styles.loginText}>{children}</Text>
-    </View>
-  );
+  return <Text style={styles.text}>{children}</Text>;
 };
 
 export default SubTitle;
 
 const styles = StyleSheet.create({
-  loginText: {
+  text: {
     paddingLeft: 40,
     marginTop: 10,
     color: "white",
