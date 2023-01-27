@@ -8,10 +8,10 @@ import PoppersDropdown from "../../components/ui/PoppersDropdown";
 const CreateEvent = () => {
   return (
     <View>
-      <SubTitle>Here is the Subtitle</SubTitle>
       <SubTitle>Title</SubTitle>
-
-      <FormInput placeholderText={"Title"} />
+      <View>
+        <FormInput placeholderText={"Title"} />
+      </View>
 
       <SubTitle>Location</SubTitle>
 
@@ -41,9 +41,9 @@ const CreateEvent = () => {
 
       <SubTitle>Invite Poppers</SubTitle>
 
-      <View style={styles.inviteContainer}>
+      {/* <View style={styles.inviteContainer}>
         <PoppersDropdown />
-      </View>
+      </View> */}
     </View>
   );
 };

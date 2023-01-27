@@ -16,6 +16,7 @@ import Colors from "../../constants/colors";
 import GlobalStyles from "../../constants/GlobalStyles";
 import CreateEvent from "./CreateEvent";
 import BottomSheet from "../../components/ui/BottomSheet";
+import BottomSheet2 from "../../components/ui/BottomSheet2";
 
 const Home = ({ navigation }) => {
   const { height } = useWindowDimensions();
@@ -24,14 +25,49 @@ const Home = ({ navigation }) => {
     ref.current.expand();
   }, []);
 
+  const ref2 = useRef();
+
+  const onPress2 = useCallback(() => {
+    const isActive = ref2.current.isActive();
+    if (isActive) {
+      ref2.current.scrollTo(0);
+    } else {
+      ref2.current.scrollTo(-200);
+    }
+  }, []);
+
   return (
     <SafeAreaView style={GlobalStyles.AndroidSafeArea}>
-      <ScrollView>
-        <Title>Timeline</Title>
+      <ScrollView stickyHeaderIndices={[0]}>
+        <View style={{ backgroundColor: Colors.primary500 }}>
+          <Title>Timeline</Title>
+        </View>
         <View style={{ alignItems: "center" }}>
           <FeedCard />
           <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
         </View>
+
+        <Pressable onPress={onPress2}>
+          <View
+            style={{
+              alignItems: "center",
+              margin: 30,
+              backgroundColor: "white",
+            }}
+          >
+            <Text style={{ fontSize: 20 }}>button</Text>
+          </View>
+        </Pressable>
       </ScrollView>
 
       <Pressable
@@ -47,13 +83,18 @@ const Home = ({ navigation }) => {
       <BottomSheet
         ref={ref}
         activeHeight={height * 0.8}
-        backgroundColor={"#DAD3C8"}
+        backgroundColor={"gray"}
         backDropColor={"black"}
       >
         <View style={{ alignItems: "center" }}>
           <CreateEvent />
         </View>
       </BottomSheet>
+      <BottomSheet2 ref={ref2}>
+        <View>
+          <Text>We made it</Text>
+        </View>
+      </BottomSheet2>
     </SafeAreaView>
   );
 };

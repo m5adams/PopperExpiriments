@@ -6,7 +6,8 @@ import Colors from "../constants/colors";
 import Home from "../screens/home/Home";
 import TopTabNavigatorNotifs from "./TopTabNotifications";
 import MessagesScreen from "../screens/messages/MessagesScreen";
-import TopTabNavigatorUser from "./TopTabUserProfile";
+// import TopTabNavigatorUser from "./TopTabUserProfile";
+import UserProfileScreen from "../screens/userprofile/UserProfileScreen";
 import PopStackNavigator from "./PopStack";
 
 const BottomTab = createBottomTabNavigator();
@@ -86,7 +87,7 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="UserProfile"
-        component={TopTabNavigatorUser}
+        component={UserProfileScreen}
         options={{
           title: "My Profile",
           tabBarIcon: ({ color }) => (

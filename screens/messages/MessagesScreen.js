@@ -17,23 +17,25 @@ const MessagesScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={GlobalStyles.AndroidSafeArea}>
       <KeyBoardComponent>
-        <ScrollView style={styles.container}>
-          <Title>Messages</Title>
+        <ScrollView style={styles.container} stickyHeaderIndices={[0]}>
+          <View style={{ backgroundColor: Colors.primary500 }}>
+            <Title>Messages</Title>
+          </View>
           <View style={styles.searchBarContainer}>
             <SearchBar />
           </View>
-
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
+          <View style={{ alignItems: "center" }}>
+            <FeedCard />
+            <FeedCard />
+            <FeedCard />
+            <FeedCard />
+            <FeedCard />
+            <FeedCard />
+            <FeedCard />
+            <FeedCard />
+            <FeedCard />
+            <FeedCard />
+          </View>
         </ScrollView>
       </KeyBoardComponent>
     </SafeAreaView>

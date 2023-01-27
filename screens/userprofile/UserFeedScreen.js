@@ -1,12 +1,25 @@
 import React from "react";
-import { StyleSheet, Text, ScrollView } from "react-native";
+import { StyleSheet, Text, ScrollView, View } from "react-native";
 
 import Colors from "../../constants/colors";
+import FeedCard from "../../components/ui/FeedCard";
 
 const UserFeedScreen = () => {
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.title}>Heres the Users Feed</Text>
+      <View style={{ alignItems: "center" }}>
+        <FeedCard />
+        <FeedCard />
+        <FeedCard />
+        <FeedCard />
+        <FeedCard />
+        <FeedCard />
+        <FeedCard />
+        <FeedCard />
+        <FeedCard />
+        <FeedCard />
+      </View>
     </ScrollView>
   );
 };

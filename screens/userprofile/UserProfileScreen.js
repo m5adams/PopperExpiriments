@@ -1,19 +1,31 @@
-import React from "react";
+import React, { useCallback, useRef } from "react";
 import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
   Image,
+  useWindowDimensions,
   Pressable,
+  SafeAreaView,
+  ScrollView,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 import Colors from "../../constants/colors";
+import GlobalStyles from "../../constants/GlobalStyles";
+import BottomSheet from "../../components/ui/BottomSheet";
+import TopTabNavigatorUser from "../../navigation/TopTabUserProfile";
 
 const UserProfileScreen = () => {
+  const { height } = useWindowDimensions();
+  const ref = useRef();
+  const onPress = useCallback(() => {
+    ref.current.expand();
+  }, []);
   return (
-    <>
+    <SafeAreaView style={GlobalStyles.AndroidSafeArea}>
+      {/* <ScrollView stickyHeaderIndices={[0, 2]}>
+        <View style={styles.headerContainer}> */}
       <View style={styles.userNameContainer}>
         <View>
           <Image
@@ -24,7 +36,10 @@ const UserProfileScreen = () => {
         <Text style={styles.userName}>miraiadams</Text>
 
         <View style={styles.iconContainer}>
-          <Pressable style={({ pressed }) => (pressed ? styles.pressed : [])}>
+          <Pressable
+            style={({ pressed }) => (pressed ? styles.pressed : [])}
+            onPress={() => onPress()}
+          >
             <Ionicons
               style={styles.icon}
               name="menu"
@@ -34,6 +49,7 @@ const UserProfileScreen = () => {
           </Pressable>
         </View>
       </View>
+      {/* </View> */}
 
       <View style={styles.profileContentContainer}>
         <View style={{ flexDirection: "row" }}>
@@ -61,13 +77,29 @@ const UserProfileScreen = () => {
           Friends List
         </Text>
       </View>
-    </>
+
+      <TopTabNavigatorUser />
+      {/* </ScrollView> */}
+      <BottomSheet
+        ref={ref}
+        activeHeight={height * 0.5}
+        backgroundColor={"white"}
+        backDropColor={"black"}
+      >
+        <View>
+          <Text>Settings</Text>
+        </View>
+      </BottomSheet>
+    </SafeAreaView>
   );
 };
 
 export default UserProfileScreen;
 
 const styles = StyleSheet.create({
+  headerContainer: {
+    backgroundColor: Colors.primary500,
+  },
   userNameContainer: {
     flexDirection: "row",
     marginTop: 10,
