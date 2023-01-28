@@ -3,15 +3,15 @@ import { StyleSheet, Dimensions, Image, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
-const SmallBubbleButton = () => {
-  const [isModalVisible, setisModalVisible] = useState(false);
+const SmallBubbleButton = ( { onPress } ) => {
+  const [isModalVisible, setisModalVisible] = useState('');
   const changeModalVisible = (bool) => {
     setisModalVisible(bool);
   };
   const tabBarHeight = useBottomTabBarHeight(); 
 
   return (
-    <Pressable onPress={() => changeModalVisible(true)} style={[styles.button, {bottom: tabBarHeight}]}>
+    <Pressable onPress={onPress} style={[styles.button, {bottom: tabBarHeight}]}>
       <Image
         style={styles.image}
         source={require("../../assets/images/bubble.png")}

@@ -6,6 +6,7 @@ import {
   View,
   Pressable,
   Dimensions,
+  Modal,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { SmallBubbleButton } from "./SmallBubbleButton";
@@ -14,7 +15,7 @@ import Animated from "react-native-reanimated";
 
 const width = Dimensions.get("window").width;
 const modalHeight = 250;
-const SimpleModal = () => {
+const SimpleModal = ( {closeModal, visible}) => {
     
   const [isModalVisible, setisModalVisible] = useState(false);
   const changeModalVisible = (bool) => {
@@ -22,6 +23,13 @@ const SimpleModal = () => {
   };
   const tabBarHeight = useBottomTabBarHeight();
   return (
+    <Modal
+        style={styles.modal}
+        transparent={true}
+        animationType="fade"
+        visible={visible}
+        closeModal={closeModal}
+      >
      <View style={styles.container}>
       <Pressable disabled={true}>
         <View style={styles.modal}>
@@ -34,7 +42,7 @@ const SimpleModal = () => {
       <View>
       </View>
       <Pressable
-        onPress={() => changeModalVisible(false)}
+        onPress={closeModal}
         style={[styles.button, { marginBottom: tabBarHeight }]}
       >
         <Image
@@ -49,9 +57,9 @@ const SimpleModal = () => {
         />
       </Pressable>
     </View> 
+    </Modal>
   );
-  
-  
+
 };
 
 

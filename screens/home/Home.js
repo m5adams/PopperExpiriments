@@ -26,9 +26,14 @@ import { SmallBubbleButton } from "../../components/ui/SmallBubbleButton";
 
 const Home = ({ navigation }) => {
   const [isModalVisible, setisModalVisible] = useState(false);
-  const changeModalVisible = (bool) => {
-    setisModalVisible(bool);
-  };
+  
+  function openModal() {
+    setisModalVisible(true);
+  }
+
+  function closeModal() {
+    setisModalVisible(false);
+  }
 
 
 
@@ -54,22 +59,17 @@ const Home = ({ navigation }) => {
         </View>
       </ScrollView>
 
-      <Pressable onPress={() => changeModalVisible(true)} style={[styles.button]}>
+      <Pressable onPress={openModal} style={[styles.button]}>
       <Image
         style={styles.image}
         source={require("../../assets/images/bubble.png")}
       />
       <Ionicons name="add" style={styles.icon} size={30} color="white" />
     </Pressable>
-      <Modal
-        style={styles.modal}
-        transparent={true}
-        animationType="fade"
+     
+        <SimpleModal 
         visible={isModalVisible}
-        onRequestClose={() => changeModalVisible(false)}
-      >
-        <SimpleModal />
-      </Modal>
+        closeModal={closeModal}/>
     </SafeAreaView>
   );
 };
