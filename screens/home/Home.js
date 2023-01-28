@@ -10,6 +10,7 @@ import {
   Modal,
   useWindowDimensions,
   ImageBackground,
+  Animated,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { SimpleModal } from "../../components/ui/SimpleModal";
@@ -21,6 +22,7 @@ import GlobalStyles from "../../constants/GlobalStyles";
 import CreateEvent from "./CreateEvent";
 import BottomSheet from "../../components/ui/BottomSheet";
 import BottomSheet2 from "../../components/ui/BottomSheet2";
+import { SmallBubbleButton } from "../../components/ui/SmallBubbleButton";
 
 const Home = ({ navigation }) => {
   const [isModalVisible, setisModalVisible] = useState(false);
@@ -28,19 +30,7 @@ const Home = ({ navigation }) => {
     setisModalVisible(bool);
   };
 
-  const MyButton = ({
-    label,
-    containerStyle = {},
-    textStyle = {},
-    onPress,
-  }) => (
-    <Pressable
-      style={({ pressed }) => [styles.button]}
-      onPress={onPress}
-    >
-      <Text style={[styles.text, textStyle]}>{label}</Text>
-    </Pressable>
-  );
+
 
   return (
     <SafeAreaView style={GlobalStyles.AndroidSafeArea}>
@@ -64,13 +54,22 @@ const Home = ({ navigation }) => {
         </View>
       </ScrollView>
 
-      <Pressable onPress={() => onPress()} style={styles.button}>
-        <Image
-          style={styles.image}
-          source={require("../../assets/images/bubble.png")}
-        />
-        <Ionicons name="md-add" style={styles.icon} size={30} color="white" />
-      </Pressable>
+      <Pressable onPress={() => changeModalVisible(true)} style={[styles.button]}>
+      <Image
+        style={styles.image}
+        source={require("../../assets/images/bubble.png")}
+      />
+      <Ionicons name="add" style={styles.icon} size={30} color="white" />
+    </Pressable>
+      <Modal
+        style={styles.modal}
+        transparent={true}
+        animationType="fade"
+        visible={isModalVisible}
+        onRequestClose={() => changeModalVisible(false)}
+      >
+        <SimpleModal />
+      </Modal>
     </SafeAreaView>
   );
 };
@@ -108,7 +107,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    bottom: 10,
-    right: 10,
+    bottom: 0,
+    right: 10
   },
 });
