@@ -1,4 +1,4 @@
-import { useCallback, useRef } from "react";
+import { useCallback, useRef, useState } from "react";
 import {
   StyleSheet,
   ScrollView,
@@ -7,8 +7,12 @@ import {
   Pressable,
   Image,
   Text,
+  Modal,
   useWindowDimensions,
+  ImageBackground,
 } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { SimpleModal } from "../../components/ui/SimpleModal";
 
 import FeedCard from "../../components/ui/FeedCard";
 import Title from "../../components/ui/Title";
@@ -19,22 +23,24 @@ import BottomSheet from "../../components/ui/BottomSheet";
 import BottomSheet2 from "../../components/ui/BottomSheet2";
 
 const Home = ({ navigation }) => {
-  const { height } = useWindowDimensions();
-  const ref = useRef();
-  const onPress = useCallback(() => {
-    ref.current.expand();
-  }, []);
+  const [isModalVisible, setisModalVisible] = useState(false);
+  const changeModalVisible = (bool) => {
+    setisModalVisible(bool);
+  };
 
-  const ref2 = useRef();
-
-  const onPress2 = useCallback(() => {
-    const isActive = ref2.current.isActive();
-    if (isActive) {
-      ref2.current.scrollTo(0);
-    } else {
-      ref2.current.scrollTo(-200);
-    }
-  }, []);
+  const MyButton = ({
+    label,
+    containerStyle = {},
+    textStyle = {},
+    onPress,
+  }) => (
+    <Pressable
+      style={({ pressed }) => [styles.button]}
+      onPress={onPress}
+    >
+      <Text style={[styles.text, textStyle]}>{label}</Text>
+    </Pressable>
+  );
 
   return (
     <SafeAreaView style={GlobalStyles.AndroidSafeArea}>
@@ -56,45 +62,15 @@ const Home = ({ navigation }) => {
           <FeedCard />
           <FeedCard />
         </View>
-
-        <Pressable onPress={onPress2}>
-          <View
-            style={{
-              alignItems: "center",
-              margin: 30,
-              backgroundColor: "white",
-            }}
-          >
-            <Text style={{ fontSize: 20 }}>button</Text>
-          </View>
-        </Pressable>
       </ScrollView>
 
-      <Pressable
-        style={({ pressed }) => (pressed ? styles.pressed : [])}
-        onPress={() => onPress()}
-      >
+      <Pressable onPress={() => onPress()} style={styles.button}>
         <Image
           style={styles.image}
           source={require("../../assets/images/bubble.png")}
         />
-        <Text style={styles.text}>+</Text>
+        <Ionicons name="md-add" style={styles.icon} size={30} color="white" />
       </Pressable>
-      <BottomSheet
-        ref={ref}
-        activeHeight={height * 0.8}
-        backgroundColor={"gray"}
-        backDropColor={"black"}
-      >
-        <View style={{ alignItems: "center" }}>
-          <CreateEvent />
-        </View>
-      </BottomSheet>
-      <BottomSheet2 ref={ref2}>
-        <View>
-          <Text>We made it</Text>
-        </View>
-      </BottomSheet2>
     </SafeAreaView>
   );
 };
@@ -107,9 +83,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary500,
   },
   image: {
-    position: "absolute",
-    right: 10,
-    bottom: 10,
     height: 80,
     width: 65,
   },
@@ -124,5 +97,18 @@ const styles = StyleSheet.create({
   },
   pressed: {
     opacity: 0.8,
+  },
+  icon: {
+    position: 'absolute',
+    justiftyContent: "center",
+    alignItems: "center",
+  },
+  button: {
+    position: "absolute",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    bottom: 10,
+    right: 10,
   },
 });
