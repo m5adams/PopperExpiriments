@@ -40,19 +40,11 @@ const UserProfileScreen = () => {
   const translateX = useSharedValue(0);
 
   const userNameStyle = useAnimatedStyle(() => {
-    // const marginLeft = interpolate(
-    //   translateX.value,
-    //   [-100, 0],
-    //   [0, -20],
-    //   Extrapolate.EXTEND
-    // );
-
     return {
-      // marginLeft,
       transform: [
         {
           translateX: withTiming(translateX.value, {
-            duration: 750,
+            duration: 850,
             easing: Easing.inOut(Easing.ease),
           }),
         },
@@ -61,29 +53,26 @@ const UserProfileScreen = () => {
   });
 
   const bubbleStyle = useAnimatedStyle(() => {
-    // const height = interpolate(
-    //   translateY.value,
-    //   [-100, 0],
-    //   [0, 65],
-    //   Extrapolate.EXTEND
-    // );
+    const height = interpolate(
+      translateY.value,
+      [0, -200],
+      [65, 0],
+      Extrapolate.IDENTITY
+    );
 
-    // const width = interpolate(
-    //   translateY.value,
-    //   [-100, 0],
-    //   [0, 50],
-    //   Extrapolate.EXTEND
-    // );
+    const width = interpolate(
+      translateY.value,
+      [0, -200],
+      [50, 0],
+      Extrapolate.IDENTITY
+    );
 
     return {
-      // height,
-      // width,
+      height,
+      width,
       transform: [
         {
-          translateY: withTiming(translateY.value, {
-            duration: 750,
-            easing: Easing.inOut(Easing.ease),
-          }),
+          translateY: translateY.value,
         },
       ],
     };
@@ -95,14 +84,20 @@ const UserProfileScreen = () => {
         lastContentOffset.value > event.contentOffset.y &&
         isScrolling.value
       ) {
-        translateY.value = 0;
+        translateY.value = withTiming(0, {
+          duration: 850,
+          easing: Easing.inOut(Easing.ease),
+        });
         translateX.value = 0;
       } else if (
         lastContentOffset.value < event.contentOffset.y &&
         isScrolling.value
       ) {
-        translateY.value = -200;
-        translateX.value = -200;
+        translateY.value = withTiming(-200, {
+          duration: 850,
+          easing: Easing.inOut(Easing.ease),
+        });
+        translateX.value = -20;
       }
       lastContentOffset.value = event.contentOffset.y;
     },
@@ -127,7 +122,9 @@ const UserProfileScreen = () => {
               source={require("../../assets/images/bubble.png")}
             />
           </Animated.View>
-          <Text style={[styles.userName, userNameStyle]}>miraiadams</Text>
+          <Animated.View style={userNameStyle}>
+            <Text style={[styles.userName]}>miraiadams</Text>
+          </Animated.View>
 
           <View style={styles.friendsIconContainer}>
             <Pressable
@@ -215,11 +212,11 @@ const styles = StyleSheet.create({
   },
   userNameContainer: {
     flexDirection: "row",
-    backgroundColor: "black",
+    // backgroundColor: "black",
   },
   imageContainer: {
-    backgroundColor: "white",
-    // marginRight: 20,
+    marginLeft: 20,
+    marginRight: 10,
     // height: 50,
     // width: 45,
   },
