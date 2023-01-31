@@ -38,10 +38,21 @@ const Home = ({ navigation }) => {
 
   return (
     <SafeAreaView style={GlobalStyles.AndroidSafeArea}>
-      <ScrollView stickyHeaderIndices={[0]}>
-        <View style={{ backgroundColor: Colors.primary500 }}>
-          <Title>Timeline</Title>
-        </View>
+      <View style={{ backgroundColor: Colors.primary500 }}>
+        <Title>Timeline</Title>
+      </View>
+      <ScrollView>
+        <Pressable onPress={onPress2}>
+          <View
+            style={{
+              alignItems: "center",
+              margin: 30,
+              backgroundColor: "white",
+            }}
+          >
+            <Text style={{ fontSize: 20 }}>button</Text>
+          </View>
+        </Pressable>
         <View style={{ alignItems: "center" }}>
           <FeedCard />
           <FeedCard />
@@ -56,18 +67,6 @@ const Home = ({ navigation }) => {
           <FeedCard />
           <FeedCard />
         </View>
-
-        <Pressable onPress={onPress2}>
-          <View
-            style={{
-              alignItems: "center",
-              margin: 30,
-              backgroundColor: "white",
-            }}
-          >
-            <Text style={{ fontSize: 20 }}>button</Text>
-          </View>
-        </Pressable>
       </ScrollView>
 
       <Pressable
@@ -90,11 +89,7 @@ const Home = ({ navigation }) => {
           <CreateEvent />
         </View>
       </BottomSheet>
-      <BottomSheet2 ref={ref2}>
-        <View>
-          <Text>We made it</Text>
-        </View>
-      </BottomSheet2>
+      <BottomSheet2 ref={ref2}></BottomSheet2>
     </SafeAreaView>
   );
 };

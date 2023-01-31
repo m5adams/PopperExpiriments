@@ -6,7 +6,7 @@ import FeedCard from "../../components/ui/FeedCard";
 
 const UserMediaScreen = () => {
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <Text style={styles.title}>Heres the Users Media</Text>
       <View style={{ alignItems: "center" }}>
         <FeedCard />
@@ -20,7 +20,7 @@ const UserMediaScreen = () => {
         <FeedCard />
         <FeedCard />
       </View>
-    </ScrollView>
+    </View>
   );
 };
 
