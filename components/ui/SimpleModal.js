@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   StyleSheet,
   Image,
@@ -6,76 +6,70 @@ import {
   View,
   Pressable,
   Dimensions,
-  Modal,
 } from "react-native";
+import Modal from "react-native-modal";
 import { Ionicons } from "@expo/vector-icons";
-import { SmallBubbleButton } from "./SmallBubbleButton";
+import { Entypo } from "@expo/vector-icons";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
-import Animated from "react-native-reanimated";
+import LongButton from "./LongButton";
 
 const width = Dimensions.get("window").width;
-const modalHeight = 250;
-const SimpleModal = ( {closeModal, visible}) => {
-    
-  const [isModalVisible, setisModalVisible] = useState(false);
-  const changeModalVisible = (bool) => {
-    setisModalVisible(bool);
-  };
+const SimpleModal = ({ closeModal, visible }) => {
   const tabBarHeight = useBottomTabBarHeight();
+
   return (
     <Modal
-        style={styles.modal}
-        transparent={true}
-        animationType="fade"
-        visible={visible}
-        closeModal={closeModal}
-      >
-     <View style={styles.container}>
+      style={styles.modal}
+      transparent={true}
+      animationType="fade"
+      isVisible={visible}
+      onRequestClose={closeModal}
+      coverScreen={false}
+    >
       <Pressable disabled={true}>
-        <View style={styles.modal}>
+        <View style={styles.modalContent}>
           <View style={styles.textView}>
             <Text style={styles.title}>Title</Text>
             <Text style={styles.description}>Descripton</Text>
           </View>
+          <View style={styles.iconsContainer}>
+            <Ionicons
+              name="calendar-outline"
+              size={24}
+              color="#8E8B8B"
+              style={styles.cornerIcons}
+            />
+            <Ionicons
+              name="location-outline"
+              size={24}
+              color="#8E8B8B"
+              style={styles.cornerIcons}
+            />
+            <Ionicons
+              name="add"
+              size={24}
+              color="#8E8B8B"
+              style={styles.cornerIcons}
+            />
+          </View>
         </View>
       </Pressable>
-      <View>
-      </View>
-      <Pressable
-        onPress={closeModal}
-        style={[styles.button, { marginBottom: tabBarHeight }]}
-      >
-        <Image
-          style={styles.image}
-          source={require("../../assets/images/bubble.png")}
-        />
-        <Ionicons
-          name="md-add"
-          style={[styles.icon, { transform: [{ rotate: "45deg" }] }]}
-          size={30}
-          color="white"
-        />
-      </Pressable>
-    </View> 
     </Modal>
   );
-
 };
 
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "rgba(0,0,0,0.7)",
-  },
+const styles = StyleSheet.create({ 
   modal: {
-    height: modalHeight,
+    position: "absolute",
+    flex: 0,
+    alignSelf: "center",
+    alignItems: "center",
+    height: "35%",
     width: width - 60,
-    paddingTop: 10,
     backgroundColor: "white",
     borderRadius: 25,
+    zIndex: 0,
+    margin: 0,
   },
   textView: {
     flex: 1,
@@ -97,15 +91,21 @@ const styles = StyleSheet.create({
     right: 10,
     bottom: 0,
   },
-  icon: {
-    position: "absolute",
-    justiftyContent: "center",
-    alignItems: "center",
-  },
   image: {
     height: 80,
     width: 65,
   },
+  iconsContainer: {
+    flexDirection: "row",
+    paddingRight: 10,
+    paddingBottom: 10,
+  },
+  cornerIcons: {
+    paddingRight: 5,
+  },
+  modalContent: {
+    flex: 1,
+  },
 });
 
-export { SimpleModal };
+export default SimpleModal;
