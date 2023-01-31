@@ -48,16 +48,8 @@ const BottomSheet = forwardRef(
 
     const animationStyle = useAnimatedStyle(() => {
       const top = topAnimation.value;
-      // const borderRadius = interpolate(
-      //   topAnimation.value,
-      //   [height + 100, height],
-      //   [200, 30],
-      //   Extrapolate.CLAMP
-      // );
       return {
-        // borderRadius,
         top,
-        // transform: [{ translateY: topAnimation.value }],
       };
     });
     const backDropAnimation = useAnimatedStyle(() => {

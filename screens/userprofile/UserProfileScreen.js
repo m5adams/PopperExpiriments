@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import {
   View,
   Text,
@@ -8,6 +8,7 @@ import {
   Pressable,
   SafeAreaView,
   ScrollView,
+  RefreshControl,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Animated, {
@@ -34,6 +35,15 @@ const UserProfileScreen = () => {
     ref.current.expand();
   }, []);
 
+  const [refreshing, setRefreshing] = useState(false);
+
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []);
+
   const lastContentOffset = useSharedValue(0);
   const isScrolling = useSharedValue(false);
   const translateY = useSharedValue(0);
@@ -57,14 +67,14 @@ const UserProfileScreen = () => {
       translateY.value,
       [0, -200],
       [65, 0],
-      Extrapolate.IDENTITY
+      Extrapolate.CLAMP
     );
 
     const width = interpolate(
       translateY.value,
       [0, -200],
       [50, 0],
-      Extrapolate.IDENTITY
+      Extrapolate.CLAMP
     );
 
     return {
@@ -85,7 +95,7 @@ const UserProfileScreen = () => {
         isScrolling.value
       ) {
         translateY.value = withTiming(0, {
-          duration: 850,
+          duration: 550,
           easing: Easing.inOut(Easing.ease),
         });
         translateX.value = 0;
@@ -158,6 +168,9 @@ const UserProfileScreen = () => {
         // stickyHeaderHiddenOnScroll={true}
         stickyHeaderIndices={[1]}
         onScroll={scrollHandler}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
       >
         <View style={styles.profileContentContainer}>
           <View style={{ flexDirection: "row" }}>
@@ -212,18 +225,14 @@ const styles = StyleSheet.create({
   },
   userNameContainer: {
     flexDirection: "row",
-    // backgroundColor: "black",
   },
   imageContainer: {
     marginLeft: 20,
     marginRight: 10,
-    // height: 50,
-    // width: 45,
   },
   image: {
     height: 65,
     width: 50,
-    // marginHorizontal: 20,
   },
   userName: {
     fontSize: 26,
@@ -234,10 +243,12 @@ const styles = StyleSheet.create({
   },
   friendsIconContainer: {
     position: "absolute",
+    top: -5,
     right: 60,
   },
   settingsIconContainer: {
     position: "absolute",
+    top: -5,
     right: 20,
   },
   icon: {

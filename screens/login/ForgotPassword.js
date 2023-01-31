@@ -12,6 +12,8 @@ import {
 import Colors from "../../constants/colors";
 import BubbleButton from "../../components/ui/BubbleButton";
 import KeyBoardComponent from "../../components/functionality/KeyboardComponent";
+import FormInput from "../../components/ui/FormInput";
+import SubTitle from "../../components/ui/SubTitle";
 
 const ForgotPassword = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -36,19 +38,15 @@ const ForgotPassword = ({ navigation }) => {
           {/* Email Address Input and Button */}
 
           <View style={{ marginTop: 20 }}>
-            <Text style={styles.loginText}>
-              Please enter your Email Address:
-            </Text>
+            <SubTitle>Please enter your Email Address:</SubTitle>
 
-            <View style={styles.inputContainer}>
-              <TextInput
-                style={styles.input}
-                placeholder="Email Address"
-                placeholderTextColor={"gray"}
-                value={email}
-                onChangeText={(text) => setEmail(text)}
-              />
-            </View>
+            <FormInput
+              placeholder="Email Address"
+              onChangeText={(text) => setEmail(text)}
+              labelValue={email}
+              autoCapitalize={false}
+              returnKeyType="done"
+            />
 
             <View style={styles.signInButtonContainer}>
               <BubbleButton>Recover Account</BubbleButton>
