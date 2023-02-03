@@ -2,6 +2,7 @@ import { useCallback, useRef } from "react";
 import {
   StyleSheet,
   ScrollView,
+  FlatList,
   SafeAreaView,
   View,
   Pressable,
@@ -16,7 +17,8 @@ import Colors from "../../constants/colors";
 import GlobalStyles from "../../constants/GlobalStyles";
 import CreateEvent from "./CreateEvent";
 import BottomSheet from "../../components/ui/BottomSheet";
-import BottomSheet2 from "../../components/ui/BottomSheet2";
+
+import { HOMEFEED } from "../../data/dummy-data";
 
 const Home = ({ navigation }) => {
   const { height } = useWindowDimensions();
@@ -25,49 +27,16 @@ const Home = ({ navigation }) => {
     ref.current.expand();
   }, []);
 
-  const ref2 = useRef();
-
-  const onPress2 = useCallback(() => {
-    const isActive = ref2.current.isActive();
-    if (isActive) {
-      ref2.current.scrollTo(0);
-    } else {
-      ref2.current.scrollTo(-200);
-    }
-  }, []);
-
   return (
     <SafeAreaView style={GlobalStyles.AndroidSafeArea}>
       <View style={{ backgroundColor: Colors.primary500 }}>
         <Title>Timeline</Title>
       </View>
-      <ScrollView>
-        <Pressable onPress={onPress2}>
-          <View
-            style={{
-              alignItems: "center",
-              margin: 30,
-              backgroundColor: "white",
-            }}
-          >
-            <Text style={{ fontSize: 20 }}>button</Text>
-          </View>
-        </Pressable>
-        <View style={{ alignItems: "center" }}>
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-          <FeedCard />
-        </View>
-      </ScrollView>
+      <FlatList
+        data={HOMEFEED}
+        renderItem={({ item }) => <FeedCard item={item} />}
+        keyExtractor={(item) => item.id}
+      />
 
       <Pressable
         style={({ pressed }) => (pressed ? styles.pressed : [])}
@@ -89,7 +58,6 @@ const Home = ({ navigation }) => {
           <CreateEvent />
         </View>
       </BottomSheet>
-      <BottomSheet2 ref={ref2}></BottomSheet2>
     </SafeAreaView>
   );
 };

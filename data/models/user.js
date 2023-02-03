@@ -3,7 +3,6 @@ class User {
     id,
     fullName,
     userName,
-    displayName,
     password,
     email,
     phoneNumber,
@@ -16,7 +15,6 @@ class User {
     this.id = id;
     this.fullName = fullName;
     this.userName = userName;
-    this.displayName = displayName;
     this.password = password;
     this.email = email;
     this.phoneNumber = phoneNumber;

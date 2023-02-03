@@ -26,7 +26,6 @@ import GlobalStyles from "../../constants/GlobalStyles";
 import BottomSheet from "../../components/ui/BottomSheet";
 import TopTabNavigatorUser from "../../navigation/TopTabUserProfile";
 import AdditionalOptionsSheet from "./AdditionalOptionsSheet";
-import FeedCard from "../../components/ui/FeedCard";
 
 const UserProfileScreen = ({ navigation }) => {
   const { height } = useWindowDimensions();
@@ -191,16 +190,6 @@ const UserProfileScreen = ({ navigation }) => {
         </View>
 
         <TopTabNavigatorUser />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
       </Animated.ScrollView>
 
       <BottomSheet

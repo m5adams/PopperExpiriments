@@ -3,23 +3,29 @@ import React from "react";
 
 import Colors from "../../constants/colors";
 import FeedCard from "../../components/ui/FeedCard";
+import { NOTIFICATIONS } from "../../data/dummy-data";
 
 const AllNotificationsScreen = () => {
   return (
-    <ScrollView style={styles.container}>
-      <View style={{ alignItems: "center" }}>
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-      </View>
-    </ScrollView>
+    <FlatList
+      data={NOTIFICATIONS}
+      renderItem={({ item }) => <FeedCard item={item} />}
+      keyExtractor={(item) => item.id}
+    />
+    // <ScrollView style={styles.container}>
+    //   <View style={{ alignItems: "center" }}>
+    //     <FeedCard />
+    //     <FeedCard />
+    //     <FeedCard />
+    //     <FeedCard />
+    //     <FeedCard />
+    //     <FeedCard />
+    //     <FeedCard />
+    //     <FeedCard />
+    //     <FeedCard />
+    //     <FeedCard />
+    //   </View>
+    // </ScrollView>
   );
 };
 

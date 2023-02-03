@@ -4,31 +4,30 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import Colors from "../../constants/colors";
 import FeedDivider from "./FeedDivider";
 
-const FeedCard = () => {
+import { USERS } from "../../data/dummy-data";
+
+const FeedCard = ({ item }) => {
+  const userObj = USERS.find((data) => data.id === item.userId);
+
   return (
     <View style={styles.cardContainer}>
       <View style={styles.elementContainer}>
         <View style={styles.imageContainer}>
-          <Image
-            style={styles.image}
-            source={require("../../assets/images/mirai.png")}
-          />
+          <Image style={styles.image} source={userObj.profilePic} />
         </View>
 
-        {/* this view puts these elements in a column */}
         <View style={styles.textContainer}>
-          {/* this view puts these two text elements in a row */}
           <View style={styles.headerContainer}>
-            <Text style={styles.userName}>Matthew Niculae</Text>
+            <Text style={styles.userName}>
+              {userObj.fullName} {userObj.userName}
+            </Text>
 
             <View style={styles.timeContainer}>
-              <Text style={styles.timeText}>11:38 am</Text>
+              <Text style={styles.timeText}>{item.dateTime}</Text>
             </View>
           </View>
 
-          <Text style={styles.previewText}>
-            This is where a message would go slay!!
-          </Text>
+          <Text style={styles.previewText}>{item.description}</Text>
         </View>
       </View>
     </View>

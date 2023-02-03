@@ -1,14 +1,21 @@
-import { StyleSheet, Text, ScrollView, View } from "react-native";
+import { StyleSheet, Text, ScrollView, View, FlatList } from "react-native";
 import React from "react";
 
 import Colors from "../../constants/colors";
 import FeedCard from "../../components/ui/FeedCard";
+import { NOTIFICATIONS } from "../../data/dummy-data";
 
 const UserMediaScreen = () => {
   return (
+    // <FlatList
+    //   data={NOTIFICATIONS}
+    //   renderItem={({ item }) => <FeedCard item={item} />}
+    //   keyExtractor={(item) => item.id}
+    // />
     <View style={styles.container}>
       <Text style={styles.title}>Heres the Users Media</Text>
       <View style={{ alignItems: "center" }}>
+        {/* <FeedCard />
         <FeedCard />
         <FeedCard />
         <FeedCard />
@@ -17,8 +24,7 @@ const UserMediaScreen = () => {
         <FeedCard />
         <FeedCard />
         <FeedCard />
-        <FeedCard />
-        <FeedCard />
+        <FeedCard /> */}
       </View>
     </View>
   );

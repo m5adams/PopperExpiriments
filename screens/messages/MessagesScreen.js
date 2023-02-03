@@ -10,7 +10,6 @@ import Title from "../../components/ui/Title";
 import Colors from "../../constants/colors";
 import SearchBar from "../../components/ui/SearchBar";
 import KeyBoardComponent from "../../components/functionality/KeyboardComponent";
-import FeedCard from "../../components/ui/FeedCard";
 import GlobalStyles from "../../constants/GlobalStyles";
 
 const MessagesScreen = ({ navigation }) => {
@@ -24,18 +23,7 @@ const MessagesScreen = ({ navigation }) => {
           <View style={styles.searchBarContainer}>
             <SearchBar />
           </View>
-          <View style={{ alignItems: "center" }}>
-            <FeedCard />
-            <FeedCard />
-            <FeedCard />
-            <FeedCard />
-            <FeedCard />
-            <FeedCard />
-            <FeedCard />
-            <FeedCard />
-            <FeedCard />
-            <FeedCard />
-          </View>
+          <View style={{ alignItems: "center" }}></View>
         </ScrollView>
       </KeyBoardComponent>
     </SafeAreaView>

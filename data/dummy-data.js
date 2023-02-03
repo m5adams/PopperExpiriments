@@ -8,20 +8,19 @@ export const USERS = [
     "1",
     "Amjad Al-Omar",
     "amjadalomar",
-    "ManBaby",
     "amjad123",
     "amjad123@gmail.com",
     "9514968660",
     "Lemonade",
-    "11/11/2000"[("2", "3", "4", "5", "6", "7", "8", "9", "10")],
+    "11/11/2000",
+    [("2", "3", "4", "5", "6", "7", "8", "9", "10")],
     "wee wee woo woo waa waa",
-    "../../assets/images/amjad.png"
+    require("../assets/images/amjad.png")
   ),
   new User(
     "2",
     "Mirai Adams",
     "miraiadams",
-    "mirai",
     "mirai123",
     "mirai123@gmail.com",
     "9515555555",
@@ -29,13 +28,12 @@ export const USERS = [
     "9/27/01",
     ["1", "3", "4", "5"],
     "i failed my drug test",
-    "../../assets/images/mirai.png"
+    require("../assets/images/miraihead.png")
   ),
   new User(
     "3",
     "Douglas Seo",
     "douglas.seo",
-    "douglas",
     "douglas123",
     "douglas123@gmail.com",
     "9519876543",
@@ -43,13 +41,12 @@ export const USERS = [
     "12/21/99",
     ["1", "2", "4", "5"],
     "Douglas is the CEOOOOO",
-    "../../assets/images/popper.png"
+    require("../assets/images/popper.png")
   ),
   new User(
     "4",
     "Matthew Niculae",
     "mattlab.io",
-    "mattnic",
     "matt123",
     "matt123@gmail.com",
     "9514567890",
@@ -57,13 +54,12 @@ export const USERS = [
     "1/28/99",
     ["1", "2", "3", "5", "6"],
     "what are these doritos all about?",
-    "../../assets/images/popper.png"
+    require("../assets/images/matt.png")
   ),
   new User(
     "5",
     "Test",
     "test",
-    "test user",
     "test123",
     "test@gmail.com",
     "5551234567",
@@ -71,13 +67,12 @@ export const USERS = [
     "1/1/97",
     ["2", "3", "4", "6", "7", "8", "9", "10"],
     "this is the test user",
-    "../../assets/images/popper.png"
+    require("../assets/images/popper.png")
   ),
   new User(
     "6",
     "Test6",
     "test6",
-    "test user6",
     "test123",
     "test6@gmail.com",
     "5551234567",
@@ -85,13 +80,12 @@ export const USERS = [
     "12/1/98",
     ["1", "2", "3", "4", "5", "7", "8", "9", "10"],
     "this is the test user number 6",
-    "../../assets/images/popper.png"
+    require("../assets/images/popper.png")
   ),
   new User(
     "7",
     "Test7",
     "test7",
-    "test user 7",
     "test123",
     "test7@gmail.com",
     "5551234567",
@@ -99,13 +93,12 @@ export const USERS = [
     "10/13/95",
     ["1", "2", "3", "4", "5", "6", "8", "9", "10"],
     "this is the test user number 7",
-    "../../assets/images/popper.png"
+    require("../assets/images/popper.png")
   ),
   new User(
     "8",
     "Test8",
     "test8",
-    "test user 8",
     "test123",
     "test8@gmail.com",
     "5551234567",
@@ -113,13 +106,12 @@ export const USERS = [
     "4/19/96",
     ["1", "2", "3", "4", "5", "6", "7", "9", "10"],
     "this is the test user number 8",
-    "../../assets/images/popper.png"
+    require("../assets/images/popper.png")
   ),
   new User(
     "9",
     "Test9",
     "test9",
-    "test user 9",
     "test123",
     "test9@gmail.com",
     "5551234567",
@@ -127,13 +119,12 @@ export const USERS = [
     "9/11/01",
     ["1", "2", "3", "4", "5", "6", "7", "8", "10"],
     "this is the test user number 9",
-    "../../assets/images/popper.png"
+    require("../assets/images/popper.png")
   ),
   new User(
     "10",
     "Test10",
     "test10",
-    "test user 10",
     "test123",
     "test10@gmail.com",
     "5551234567",
@@ -141,7 +132,7 @@ export const USERS = [
     "6/7/98",
     ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
     "this is the test user",
-    "../../assets/images/popper.png"
+    require("../assets/images/popper.png")
   ),
 ];
 
@@ -155,7 +146,7 @@ export const HOMEFEED = [
     false,
     ["1", "3", "4", "5", "6", "7", "8", "9"],
     ["wow", "nice", "cool"],
-    "../../assets/images/mirai.png"
+    require("../assets/images/mirai.png")
   ),
   new Feed(
     "f2",
@@ -166,7 +157,7 @@ export const HOMEFEED = [
     true,
     ["3", "4", "6"],
     ["wow", "nice", "cool"],
-    "../../assets/images/amjad.png"
+    require("../assets/images/amjad.png")
   ),
   new Feed(
     "f3",
@@ -177,7 +168,7 @@ export const HOMEFEED = [
     true,
     ["1", "3", "4", "6", "7", "8", "9"],
     ["yooooo", "get into it yuh", "slay besitie"],
-    "../../assets/images/amjad.png"
+    require("../assets/images/amjad.png")
   ),
   new Feed(
     "f4",
@@ -188,7 +179,7 @@ export const HOMEFEED = [
     false,
     ["1", "9"],
     ["hip"],
-    "../../assets/images/amjad.png"
+    require("../assets/images/amjad.png")
   ),
   new Feed(
     "f5",
@@ -199,7 +190,7 @@ export const HOMEFEED = [
     false,
     ["1", "7", "8", "9"],
     ["wow", "nice", "cool"],
-    "../../assets/images/mirai.png"
+    require("../assets/images/mirai.png")
   ),
   new Feed(
     "f6",
@@ -210,7 +201,51 @@ export const HOMEFEED = [
     true,
     ["1", "4", "5", "6", "7", "8", "9"],
     ["im jealous!", "drive hoe", "cool"],
-    "../../assets/images/amjad.png"
+    require("../assets/images/amjad.png")
+  ),
+  new Feed(
+    "f7",
+    "2",
+    "1 week ago",
+    "Starbucks, Corona, CA",
+    "Studying so fun : (",
+    true,
+    ["1", "4", "5", "6", "7", "8", "9"],
+    ["im jealous!", "drive hoe", "cool"],
+    require("../assets/images/amjad.png")
+  ),
+  new Feed(
+    "f8",
+    "1",
+    "2 week ago",
+    "Cheesecake Factory, Riverside, CA",
+    "Birthday Dinner thanks for coming out guys",
+    true,
+    ["1", "4", "5", "6", "7", "8", "9"],
+    ["im jealous!", "drive hoe", "cool"],
+    require("../assets/images/amjad.png")
+  ),
+  new Feed(
+    "f9",
+    "4",
+    "3 week ago",
+    "Knotts Berry Farm, Buena Park, CA",
+    "Knotts Scary Farmmmmmm ooooooewwewew",
+    true,
+    ["1", "4", "5", "6", "7", "8", "9"],
+    ["im jealous!", "drive hoe", "cool"],
+    require("../assets/images/amjad.png")
+  ),
+  new Feed(
+    "f10",
+    "8",
+    "3 week ago",
+    "Big Bear Slopes, Big Bear, CA",
+    "Hit the slopes with the bros chaaaaa",
+    true,
+    ["1", "4", "5", "6", "7", "8", "9"],
+    ["im jealous!", "drive hoe", "cool"],
+    require("../assets/images/amjad.png")
   ),
 ];
 
