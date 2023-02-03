@@ -19,7 +19,7 @@ const FeedCard = ({ item }) => {
         <View style={styles.textContainer}>
           <View style={styles.headerContainer}>
             <Text style={styles.userName}>
-              {userObj.fullName} {userObj.userName}
+              {userObj.fullName} @{userObj.userName}
             </Text>
 
             <View style={styles.timeContainer}>

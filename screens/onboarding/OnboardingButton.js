@@ -8,7 +8,11 @@ const OnboardingButton = ({ scrollTo, buttonName, otherStyles }) => {
     <View style={styles.buttonOuterContainer}>
       <Pressable
         onPress={scrollTo}
-        style={[styles.buttonInnerContainer, otherStyles]}
+        style={({ pressed }) =>
+          pressed
+            ? [styles.buttonInnerContainer, otherStyles, styles.pressed]
+            : [styles.buttonInnerContainer, otherStyles]
+        }
       >
         <View style={styles.button}>
           <Text style={styles.text}>{buttonName}</Text>
@@ -36,5 +40,8 @@ const styles = StyleSheet.create({
   text: {
     color: Colors.accent500,
     fontSize: 20,
+  },
+  pressed: {
+    opacity: 0.8,
   },
 });

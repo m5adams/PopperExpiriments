@@ -32,10 +32,12 @@ const Home = ({ navigation }) => {
       <View style={{ backgroundColor: Colors.primary500 }}>
         <Title>Timeline</Title>
       </View>
+
       <FlatList
         data={HOMEFEED}
         renderItem={({ item }) => <FeedCard item={item} />}
         keyExtractor={(item) => item.id}
+        contentContainerStyle={{ alignItems: "center" }}
       />
 
       <Pressable
