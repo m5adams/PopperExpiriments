@@ -5,10 +5,9 @@ import { Ionicons } from "@expo/vector-icons";
 import Colors from "../constants/colors";
 import Home from "../screens/home/Home";
 import TopTabNavigatorNotifs from "./TopTabNotifications";
-import MessagesScreen from "../screens/messages/MessagesScreen";
-// import TopTabNavigatorUser from "./TopTabUserProfile";
-import UserProfileScreen from "../screens/userprofile/UserProfileScreen";
 import PopStackNavigator from "./PopStack";
+import MessagesScreen from "../screens/messages/MessagesScreen";
+import ProfileStackNavigator from "./ProfileStack";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -86,8 +85,8 @@ function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="UserProfile"
-        component={UserProfileScreen}
+        name="Profile"
+        component={ProfileStackNavigator}
         options={{
           title: "My Profile",
           tabBarIcon: ({ color }) => (

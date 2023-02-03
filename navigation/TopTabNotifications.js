@@ -4,6 +4,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import Colors from "../constants/colors";
 import AllNotificationsScreen from "../screens/notifications/AllNotificationsScreen";
 import EventNotificationsScreen from "../screens/notifications/EventNotificationsScreen";
+import PopsNotificationScreen from "../screens/notifications/PopsNotificationScreen";
 import Title from "../components/ui/Title";
 import GlobalStyles from "../constants/GlobalStyles";
 
@@ -38,7 +39,23 @@ function TopTabNavigatorNotifs() {
               width: 33,
               borderRadius: 30,
               marginBottom: 10,
-              left: 81,
+              left: 48,
+            },
+          }}
+        />
+        <TopTab.Screen
+          name="PopsNotifications"
+          component={PopsNotificationScreen}
+          options={{
+            title: "Pops",
+            tabBarIndicatorStyle: {
+              position: "absolute",
+              backgroundColor: Colors.accent500,
+              height: 3,
+              width: 44,
+              borderRadius: 30,
+              marginBottom: 10,
+              left: 43,
             },
           }}
         />
@@ -51,10 +68,10 @@ function TopTabNavigatorNotifs() {
               position: "absolute",
               backgroundColor: Colors.accent500,
               height: 3,
-              width: 60,
+              width: 61,
               borderRadius: 30,
               marginBottom: 10,
-              left: 68,
+              left: 34,
             },
           }}
         />

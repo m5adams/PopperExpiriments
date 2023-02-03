@@ -10,6 +10,7 @@ const AdditionalOptionsSheet = ({ navigation }) => {
           style={({ pressed }) =>
             pressed ? [styles.pressable, styles.pressed] : [styles.pressable]
           }
+          onPress={() => navigation.navigate("EditProfile")}
         >
           <Ionicons
             style={styles.icon}
@@ -25,6 +26,7 @@ const AdditionalOptionsSheet = ({ navigation }) => {
           style={({ pressed }) =>
             pressed ? [styles.pressable, styles.pressed] : [styles.pressable]
           }
+          onPress={() => navigation.navigate("Settings")}
         >
           <Ionicons
             style={styles.icon}
@@ -55,6 +57,7 @@ const AdditionalOptionsSheet = ({ navigation }) => {
           style={({ pressed }) =>
             pressed ? [styles.pressable, styles.pressed] : [styles.pressable]
           }
+          onPress={() => navigation.navigate("LoginScreen")}
         >
           <Ionicons
             style={styles.icon}

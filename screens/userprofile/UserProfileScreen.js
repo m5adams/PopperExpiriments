@@ -28,7 +28,7 @@ import TopTabNavigatorUser from "../../navigation/TopTabUserProfile";
 import AdditionalOptionsSheet from "./AdditionalOptionsSheet";
 import FeedCard from "../../components/ui/FeedCard";
 
-const UserProfileScreen = () => {
+const UserProfileScreen = ({ navigation }) => {
   const { height } = useWindowDimensions();
   const ref = useRef();
   const onPress = useCallback(() => {
@@ -120,6 +120,8 @@ const UserProfileScreen = () => {
   });
 
   const friendsListButtonHandler = () => {
+    navigation.navigate("FriendsList");
+
     console.log("friendslist will pop up here");
   };
   return (
@@ -165,7 +167,6 @@ const UserProfileScreen = () => {
         </View>
       </View>
       <Animated.ScrollView
-        // stickyHeaderHiddenOnScroll={true}
         stickyHeaderIndices={[1]}
         onScroll={scrollHandler}
         refreshControl={
@@ -210,7 +211,7 @@ const UserProfileScreen = () => {
         style={{ zIndex: 10 }}
       >
         <View>
-          <AdditionalOptionsSheet />
+          <AdditionalOptionsSheet navigation={navigation} />
         </View>
       </BottomSheet>
     </SafeAreaView>
