@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
+import Onboarding from "../screens/onboarding/Onboarding";
 import LandingScreen from "../screens/LandingScreen";
 import LoginScreen from "../screens/login/LoginScreen";
 import CreateAccount from "../screens/login/CreateAccount";
@@ -26,10 +27,17 @@ function StackNavigator() {
         }}
       />
       <Stack.Screen
+        name="Onboarding"
+        component={Onboarding}
+        options={{
+          gestureEnabled: true,
+        }}
+      />
+      <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
         options={{
-          gestureEnabled: false,
+          gestureEnabled: true,
         }}
       />
       <Stack.Screen

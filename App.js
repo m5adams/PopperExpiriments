@@ -17,16 +17,3 @@ export default function App() {
     </GestureHandlerRootView>
   );
 }
-
-const styles = StyleSheet.create({
-  rootScreen: {
-    flex: 1,
-    backgroundColor: Colors.primary500,
-  },
-});
-
-//Junkyard
-
-{
-  /* <Background style={styles.rootScreen}> </Background> */
-}

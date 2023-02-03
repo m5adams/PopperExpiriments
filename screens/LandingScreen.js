@@ -4,7 +4,7 @@ import BubbleButton from "../components/ui/BubbleButton";
 
 const LandingScreen = ({ navigation }) => {
   function pressHandler() {
-    navigation.navigate("LoginScreen");
+    navigation.navigate("Onboarding");
   }
 
   return (
