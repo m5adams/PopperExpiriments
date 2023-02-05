@@ -10,23 +10,27 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
-import { LinearGradient } from "expo-linear-gradient";
-
+import GradientButton from "react-native-gradient-buttons";
 const width = Dimensions.get("window").width;
 const buttonHeight = 100;
 
 const LongButton = ({ closeModal }) => {
   const tabBarHeight = useBottomTabBarHeight();
   return (
-    <Pressable onPress={closeModal} style={[styles.button]}>
-      <LinearGradient
-        // Button Linear Gradient
-        colors={["rgb(248, 131, 121)", "rgba(248, 131, 121, 0.9)"]}
-        style={[styles.gradient]}
-      >
-        <Text style={styles.text}>Post</Text>
-      </LinearGradient>
-    </Pressable>
+    <GradientButton
+      style={{ marginVertical: 8 }}
+      text="Gradient Button #1"
+      textStyle={{ fontSize: 20 }}
+      gradientBegin="#874f00"
+      gradientEnd="#f5ba57"
+      gradientDirection="diagonal"
+      height={60}
+      width={300}
+      radius={15}
+      impact
+      impactStyle="Light"
+      onPressAction={() => alert("You pressed me!")}
+    />
   );
 };
 
@@ -34,7 +38,6 @@ const styles = StyleSheet.create({
   button: {
     width: width - 60,
     height: 50,
-    
   },
   text: {
     textAlign: "center",

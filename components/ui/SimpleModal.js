@@ -19,18 +19,26 @@ const SimpleModal = ({ closeModal, visible }) => {
 
   return (
     <Modal
-      style={styles.modal}
       transparent={true}
       animationType="fade"
       isVisible={visible}
       onRequestClose={closeModal}
       coverScreen={false}
     >
-      <Pressable disabled={true}>
+      <View style={styles.modalContainer}>
         <View style={styles.modalContent}>
+            <View style={styles.textContainer}> 
+          <View style={styles.titleView}>
+            <Text style={styles.header}>Title</Text>
+            <Text style={styles.title}>Going to WATERBAR</Text>
+          </View>
+          <View style={styles.line}></View>
           <View style={styles.textView}>
-            <Text style={styles.title}>Title</Text>
-            <Text style={styles.description}>Descripton</Text>
+            <Text style={styles.header}>Descripton</Text>
+            <Text style={styles.description}>
+              come to PB tonight to go to waterbar!
+            </Text>
+          </View>
           </View>
           <View style={styles.iconsContainer}>
             <Ionicons
@@ -53,58 +61,59 @@ const SimpleModal = ({ closeModal, visible }) => {
             />
           </View>
         </View>
-      </Pressable>
+      </View>
     </Modal>
   );
 };
 
-const styles = StyleSheet.create({ 
-  modal: {
-    position: "absolute",
-    flex: 0,
-    alignSelf: "center",
+const styles = StyleSheet.create({
+  modalContainer: {
+    flex: 1,
     alignItems: "center",
+    justifyContent: "center",
+  },
+  modalContent: {
     height: "35%",
     width: width - 60,
     backgroundColor: "white",
     borderRadius: 25,
     zIndex: 0,
-    margin: 0,
   },
-  textView: {
+  textContainer: {
     flex: 1,
+    alignItems: "flex-start",
+    paddingHorizontal: "10%",
+    paddingVertical: "5%",
+  },
+  titleView: {
+    flexDirection: "row",
     alignItems: "center",
+  },
+  header: {
+    fontSize: 16
   },
   title: {
-    fontSize: 16,
-    fontWeight: "bold",
-    borderBottomWidth: 2,
+    fontSize: 18,
+    paddingHorizontal: "5%"
   },
   description: {
-    fontSize: 14,
+    fontSize: 18,
   },
-  button: {
-    position: "absolute",
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    right: 10,
-    bottom: 0,
-  },
-  image: {
-    height: 80,
-    width: 65,
+  line: {
+    borderBottomColor: "rgba(114, 109, 109, 0.3)",
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    width: width - 60,
+    alignSelf: "center",
+    marginVertical: "5%"
   },
   iconsContainer: {
     flexDirection: "row",
+    justifyContent: "flex-end",
     paddingRight: 10,
     paddingBottom: 10,
   },
   cornerIcons: {
     paddingRight: 5,
-  },
-  modalContent: {
-    flex: 1,
   },
 });
 

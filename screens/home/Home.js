@@ -24,10 +24,6 @@ const Home = ({ navigation }) => {
     setisModalVisible(!isModalVisible);
   }
 
-  function closeModal() {
-    setisModalVisible(false);
-  }
-
   return (
     <SafeAreaView style={GlobalStyles.AndroidSafeArea}>
       <ScrollView stickyHeaderIndices={[0]}>
@@ -51,7 +47,7 @@ const Home = ({ navigation }) => {
       </ScrollView>
 
         <SmallBubbleButton onPress={toggleModal} isModalVisible={isModalVisible} />
-      <SimpleModal visible={isModalVisible} closeModal={toggleModal} />
+      <SimpleModal visible={isModalVisible} closeModal={toggleModal} style={styles.modal} />
     </SafeAreaView>
   );
 };
@@ -76,5 +72,9 @@ const styles = StyleSheet.create({
     right: 33.5,
     bottom: 33,
   },
+  modal: {
+    flex: 1,
+    textAlignVertical: "center",
+  }
 
 });
