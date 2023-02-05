@@ -26,8 +26,11 @@ import GlobalStyles from "../../constants/GlobalStyles";
 import BottomSheet from "../../components/ui/BottomSheet";
 import TopTabNavigatorUser from "../../navigation/TopTabUserProfile";
 import AdditionalOptionsSheet from "./AdditionalOptionsSheet";
+import { USERS } from "../../data/dummy-data";
 
 const UserProfileScreen = ({ navigation }) => {
+  const user = USERS[1];
+
   const { height } = useWindowDimensions();
   const ref = useRef();
   const onPress = useCallback(() => {
@@ -119,9 +122,7 @@ const UserProfileScreen = ({ navigation }) => {
   });
 
   const friendsListButtonHandler = () => {
-    navigation.navigate("FriendsList");
-
-    console.log("friendslist will pop up here");
+    navigation.navigate("FriendsList", { friendsList: user.friendIds });
   };
   return (
     <SafeAreaView style={GlobalStyles.AndroidSafeArea}>
@@ -134,7 +135,7 @@ const UserProfileScreen = ({ navigation }) => {
             />
           </Animated.View>
           <Animated.View style={userNameStyle}>
-            <Text style={[styles.userName]}>miraiadams</Text>
+            <Text style={[styles.userName]}>{user.userName}</Text>
           </Animated.View>
 
           <View style={styles.friendsIconContainer}>
@@ -175,16 +176,13 @@ const UserProfileScreen = ({ navigation }) => {
         <View style={styles.profileContentContainer}>
           <View style={{ flexDirection: "row" }}>
             <View style={{ flex: 1, marginLeft: 20 }}>
-              <Image
-                style={styles.profilePic}
-                source={require("../../assets/images/mirai.png")}
-              />
+              <Image style={styles.profilePic} source={user.profilePic} />
             </View>
 
             <View style={{ flex: 2, alignItems: "center" }}>
-              <Text style={styles.name}>Mirai Adams</Text>
+              <Text style={styles.name}>{user.fullName}</Text>
 
-              <Text style={styles.bio}>UCSD 22'</Text>
+              <Text style={styles.bio}>{user.bio}</Text>
             </View>
           </View>
         </View>
@@ -256,14 +254,14 @@ const styles = StyleSheet.create({
     borderRadius: 200,
   },
   name: {
-    fontSize: 32,
-    fontWeight: "bold",
+    fontSize: 28,
+    fontWeight: "400",
     color: "white",
     marginTop: 20,
   },
   bio: {
-    fontSize: 18,
-    fontWeight: "300",
+    fontSize: 16,
+    fontWeight: "200",
     color: "white",
     marginBottom: 20,
   },

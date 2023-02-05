@@ -13,7 +13,7 @@ export const USERS = [
     "9514968660",
     "Lemonade",
     "11/11/2000",
-    [("2", "3", "4", "5", "6", "7", "8", "9", "10")],
+    ["2", "3", "4", "5", "6", "7", "8", "9", "10"],
     "wee wee woo woo waa waa",
     require("../assets/images/amjad.png")
   ),
@@ -41,7 +41,7 @@ export const USERS = [
     "12/21/99",
     ["1", "2", "4", "5"],
     "Douglas is the CEOOOOO",
-    require("../assets/images/popper.png")
+    require("../assets/images/douglas.png")
   ),
   new User(
     "4",
@@ -250,39 +250,24 @@ export const HOMEFEED = [
 ];
 
 export const NOTIFICATIONS = [
-  new Notification(
-    "n1",
-    "3",
-    "1 day ago",
-    "",
-    "User just Popped with you!",
-    ""
-  ),
-  new Notification(
-    "n2",
-    "1",
-    "1 day ago",
-    "",
-    "User2 just Popped with you!",
-    ""
-  ),
-  new Notification("n3", "1", "2 days ago", "", "User3 liked your pop.", ""),
-  new Notification(
-    "n4",
-    "3",
-    "2 days ago",
-    "",
-    "User3 just Popped with you!",
-    ""
-  ),
+  new Notification("n1", "3", "like", "1d", "", " liked your pop.", ""),
+  new Notification("n2", "1", "pop", "1d", "", " just Popped with you!", ""),
+  new Notification("n3", "1", "like", "2d", "", " liked your pop.", ""),
+  new Notification("n4", "3", "pop", "2d", "", " just Popped with you!", ""),
   new Notification(
     "n5",
     "1",
-    "3 days ago",
+    "event",
+    "3d",
     "",
-    "User popped 'going to San Diego tonight!'",
+    " popped 'going to San Diego tonight!'",
     ""
   ),
+  new Notification("n6", "2", "pop", "4d", "", " just Popped with you!", ""),
+  new Notification("n7", "4", "pop", "4d", "", " just Popped with you!", ""),
+  new Notification("n8", "5", "pop", "5d", "", " just Popped with you!", ""),
+  new Notification("n9", "9", "pop", "6d", "", " just Popped with you!", ""),
+  new Notification("n10", "10", "pop", "6d", "", " just Popped with you!", ""),
 ];
 
 export const EVENTS = [];

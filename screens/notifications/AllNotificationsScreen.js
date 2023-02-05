@@ -1,31 +1,19 @@
-import { StyleSheet, Text, FlatList, ScrollView, View } from "react-native";
+import { StyleSheet, FlatList, View } from "react-native";
 import React from "react";
 
 import Colors from "../../constants/colors";
-import FeedCard from "../../components/ui/FeedCard";
+import NotificationCard from "../../components/ui/NotificationCard";
 import { NOTIFICATIONS } from "../../data/dummy-data";
 
 const AllNotificationsScreen = () => {
   return (
-    <FlatList
-      data={NOTIFICATIONS}
-      renderItem={({ item }) => <FeedCard item={item} />}
-      keyExtractor={(item) => item.id}
-    />
-    // <ScrollView style={styles.container}>
-    //   <View style={{ alignItems: "center" }}>
-    //     <FeedCard />
-    //     <FeedCard />
-    //     <FeedCard />
-    //     <FeedCard />
-    //     <FeedCard />
-    //     <FeedCard />
-    //     <FeedCard />
-    //     <FeedCard />
-    //     <FeedCard />
-    //     <FeedCard />
-    //   </View>
-    // </ScrollView>
+    <View style={styles.container}>
+      <FlatList
+        data={NOTIFICATIONS}
+        renderItem={({ item }) => <NotificationCard item={item} />}
+        keyExtractor={(item) => item.id}
+      />
+    </View>
   );
 };
 

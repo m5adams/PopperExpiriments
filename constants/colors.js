@@ -7,5 +7,11 @@ const Colors = {
   // accent500: "#9DE2FF",
   accent500: "white",
 };
+// const Colors = {
+//   primary400: "#daa1a8",
+//   primary500: "#ecbecb",
+//   primary700: "#b1ebdf",
+//   accent500: "#9796c2",
+// };
 
 export default Colors;

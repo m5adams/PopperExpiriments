@@ -19,7 +19,7 @@ function BottomTabNavigator() {
         headerTintColor: "white",
         headerShown: false,
         tabBarActiveTintColor: Colors.accent500,
-        tabBarInactiveTintColor: "white",
+        tabBarInactiveTintColor: Colors.primary400,
         tabBarStyle: { backgroundColor: Colors.primary500, zIndex: 0 },
         tabBarShowLabel: false,
       }}

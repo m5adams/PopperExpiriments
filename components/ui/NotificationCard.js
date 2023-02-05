@@ -5,7 +5,7 @@ import Colors from "../../constants/colors";
 
 import { USERS } from "../../data/dummy-data";
 
-const FeedCard = ({ item }) => {
+const NotificationCard = ({ item }) => {
   const userObj = USERS.find((data) => data.id === item.userId);
 
   return (
@@ -16,36 +16,25 @@ const FeedCard = ({ item }) => {
         </View>
 
         <View style={styles.textContainer}>
-          <View style={styles.headerContainer}>
-            <Text style={styles.userName}>
-              {userObj.fullName} @{userObj.userName}
-            </Text>
-
-            <View style={styles.timeContainer}>
-              <Text style={styles.timeText}>{item.dateTime}</Text>
-            </View>
-          </View>
-
-          <Text style={styles.previewText}>{item.description}</Text>
+          <Text style={styles.previewText}>
+            <Text style={styles.userName}>{userObj.fullName}</Text>
+            {item.description}
+            <Text style={styles.timeText}> {item.dateTime}</Text>
+          </Text>
         </View>
       </View>
     </View>
   );
 };
 
-export default FeedCard;
+export default NotificationCard;
 
 const styles = StyleSheet.create({
   cardContainer: {
-    paddingTop: 18,
-    width: "90%",
     alignItems: "center",
-    marginTop: 10,
-    backgroundColor: Colors.accent500,
-    borderWidth: 1,
-    borderColor: Colors.primary400,
-    borderRadius: 20,
-    paddingBottom: 30,
+    // backgroundColor: Colors.primary400,
+    paddingTop: 5,
+    paddingBottom: 5,
   },
   elementContainer: {
     flexDirection: "row",
@@ -53,38 +42,31 @@ const styles = StyleSheet.create({
   imageContainer: {
     width: 70,
     height: 50,
-    flex: 1,
     borderRadius: 100,
+    flex: 1,
   },
   image: {
     width: 50,
     height: 50,
-    alignSelf: "center",
     borderRadius: 100,
+    alignSelf: "center",
   },
   textContainer: {
+    justifyContent: "center",
     flex: 4,
   },
-  headerContainer: {
-    flexDirection: "row",
-    marginBottom: 8,
-  },
   userName: {
-    flex: 2,
-    color: Colors.primary500,
+    color: "white",
     fontSize: 14,
     fontWeight: "bold",
   },
-  timeContainer: {
-    flex: 1,
-  },
   timeText: {
-    color: Colors.primary500,
+    color: "white",
     fontSize: 12,
     opacity: 0.6,
   },
   previewText: {
-    color: Colors.primary500,
+    color: "white",
     fontSize: 12,
   },
 });
