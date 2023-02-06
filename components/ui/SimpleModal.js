@@ -11,11 +11,20 @@ import Modal from "react-native-modal";
 import { Ionicons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
+import { Quicksand_400Regular, Quicksand_600SemiBold } from '@expo-google-fonts/quicksand';
+import { useFonts } from 'expo-font';
 
 const width = Dimensions.get("window").width;
 const SimpleModal = ({ closeModal, visible }) => {
   const tabBarHeight = useBottomTabBarHeight();
+  let [fontsLoaded] = useFonts({
+    Quicksand_400Regular,
+    Quicksand_600SemiBold
+  });
 
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
     <Modal
       transparent={true}
@@ -89,14 +98,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   header: {
-    fontSize: 16
+    fontSize: 16,
+    fontFamily: "QuicksandSemiBold"
   },
   title: {
-    fontSize: 18,
-    paddingHorizontal: "5%"
+    fontSize: 20,
+    paddingHorizontal: "5%",
+    fontFamily: "QuicksandBold"
   },
   description: {
     fontSize: 18,
+    fontFamily: "QuicksandRegular"
   },
   line: {
     borderBottomColor: "rgba(114, 109, 109, 0.3)",

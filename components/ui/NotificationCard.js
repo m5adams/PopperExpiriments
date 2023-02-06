@@ -57,16 +57,17 @@ const styles = StyleSheet.create({
   },
   userName: {
     color: "white",
-    fontSize: 14,
-    fontWeight: "bold",
+    fontSize: 15,
+    fontFamily: "QuicksandSemiBold",
   },
   timeText: {
     color: "white",
     fontSize: 12,
-    opacity: 0.6,
+    fontFamily: "QuicksandLight",
   },
   previewText: {
     color: "white",
-    fontSize: 12,
+    fontSize: 14,
+    fontFamily: "QuicksandMedium"
   },
 });

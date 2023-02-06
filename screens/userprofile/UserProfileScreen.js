@@ -225,7 +225,7 @@ const styles = StyleSheet.create({
   userName: {
     fontSize: 26,
     color: "white",
-    fontWeight: "300",
+    fontFamily: "QuicksandSemiBold",
     marginTop: 15,
     marginLeft: 10,
   },
@@ -255,13 +255,13 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 28,
-    fontWeight: "400",
+    fontFamily: "QuicksandSemiBold",
     color: "white",
     marginTop: 20,
   },
   bio: {
     fontSize: 16,
-    fontWeight: "200",
+    fontFamily: "QuicksandRegular",
     color: "white",
     marginBottom: 20,
   },

@@ -24,9 +24,9 @@ const styles = StyleSheet.create({
   title: {
     textAlign: "center",
     fontSize: 28,
-    fontWeight: "400",
     color: "white",
     marginVertical: 12,
+    fontFamily: "QuicksandSemiBold"
   },
   imageContainer: {
     alignItems: "center",
