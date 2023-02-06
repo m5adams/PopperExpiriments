@@ -128,7 +128,7 @@ const UserProfileScreen = ({ navigation }) => {
     <SafeAreaView style={GlobalStyles.AndroidSafeArea}>
       <View style={styles.headerContainer}>
         <View style={styles.userNameContainer}>
-          <Animated.View style={[bubbleStyle, styles.imageContainer]}>
+          <Animated.View style={[styles.imageContainer, bubbleStyle]}>
             <Image
               style={styles.image}
               source={require("../../assets/images/bubble.png")}
@@ -174,20 +174,112 @@ const UserProfileScreen = ({ navigation }) => {
         }
       >
         <View style={styles.profileContentContainer}>
-          <View style={{ flexDirection: "row" }}>
-            <View style={{ flex: 1, marginLeft: 20 }}>
-              <Image style={styles.profilePic} source={user.profilePic} />
-            </View>
+          <View style={{ flex: 1, marginLeft: 20 }}>
+            <Image style={styles.profilePic} source={user.profilePic} />
+          </View>
 
-            <View style={{ flex: 2, alignItems: "center" }}>
-              <Text style={styles.name}>{user.fullName}</Text>
+          <View style={{ flex: 2, alignItems: "center" }}>
+            <Text style={styles.name}>{user.fullName}</Text>
 
-              <Text style={styles.bio}>{user.bio}</Text>
-            </View>
+            <Text style={styles.bio}>{user.bio}</Text>
           </View>
         </View>
 
         <TopTabNavigatorUser />
+
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
+        <View style={{ height: 40 }}>
+          <Text style={{ color: "white" }}>TEST CONTENT</Text>
+        </View>
       </Animated.ScrollView>
 
       <BottomSheet
@@ -223,7 +315,7 @@ const styles = StyleSheet.create({
     width: 50,
   },
   userName: {
-    fontSize: 26,
+    fontSize: 24,
     color: "white",
     fontFamily: "QuicksandSemiBold",
     marginTop: 15,
