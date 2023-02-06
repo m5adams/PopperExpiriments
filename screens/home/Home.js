@@ -1,31 +1,27 @@
-import { useCallback, useRef } from "react";
+import { useState } from "react";
 import {
   StyleSheet,
-  ScrollView,
   FlatList,
   SafeAreaView,
   View,
-  Pressable,
-  Image,
-  Text,
-  useWindowDimensions,
 } from "react-native";
 
 import FeedCard from "../../components/ui/FeedCard";
 import Title from "../../components/ui/Title";
 import Colors from "../../constants/colors";
 import GlobalStyles from "../../constants/GlobalStyles";
-import CreateEvent from "./CreateEvent";
-import BottomSheet from "../../components/ui/BottomSheet";
+import SimpleModal from "../../components/ui/SimpleModal";
+
+import { SmallBubbleButton } from "../../components/ui/SmallBubbleButton";
 
 import { HOMEFEED } from "../../data/dummy-data";
 
 const Home = ({ navigation }) => {
-  const { height } = useWindowDimensions();
-  const ref = useRef();
-  const onPress = useCallback(() => {
-    ref.current.expand();
-  }, []);
+  const [isModalVisible, setisModalVisible] = useState(false);
+
+  function toggleModal() {
+    setisModalVisible(!isModalVisible);
+  }
 
   return (
     <SafeAreaView style={GlobalStyles.AndroidSafeArea}>
@@ -40,26 +36,15 @@ const Home = ({ navigation }) => {
         contentContainerStyle={{ alignItems: "center" }}
       />
 
-      <Pressable
-        style={({ pressed }) => (pressed ? styles.pressed : [])}
-        onPress={() => onPress()}
-      >
-        <Image
-          style={styles.image}
-          source={require("../../assets/images/bubble.png")}
-        />
-        <Text style={styles.text}>+</Text>
-      </Pressable>
-      <BottomSheet
-        ref={ref}
-        activeHeight={height * 0.8}
-        backgroundColor={"gray"}
-        backDropColor={"black"}
-      >
-        <View style={{ alignItems: "center" }}>
-          <CreateEvent />
-        </View>
-      </BottomSheet>
+      <SmallBubbleButton
+        onPress={toggleModal}
+        isModalVisible={isModalVisible}
+      />
+      <SimpleModal
+        visible={isModalVisible}
+        closeModal={toggleModal}
+        style={styles.modal}
+      />
     </SafeAreaView>
   );
 };
@@ -71,13 +56,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.primary500,
   },
-  image: {
-    position: "absolute",
-    right: 10,
-    bottom: 10,
-    height: 80,
-    width: 65,
-  },
   text: {
     position: "absolute",
     alignItems: "flex-end",
@@ -87,7 +65,8 @@ const styles = StyleSheet.create({
     right: 33.5,
     bottom: 33,
   },
-  pressed: {
-    opacity: 0.8,
-  },
+  modal: {
+    flex: 1,
+    textAlignVertical: "center",
+  }
 });
