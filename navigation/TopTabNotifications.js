@@ -22,8 +22,8 @@ function TopTabNavigatorNotifs() {
           },
           tabBarLabelStyle: {
             color: "white",
-            fontWeight: "400",
-            fontSize: 14,
+            fontFamily: "QuicksandSemiBold",
+            fontSize: 15,
           },
         }}
       >

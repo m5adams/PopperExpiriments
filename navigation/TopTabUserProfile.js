@@ -17,7 +17,7 @@ function TopTabNavigatorUser() {
         },
         tabBarLabelStyle: {
           color: "white",
-          fontWeight: "400",
+          fontFamily: "QuicksandSemiBold",
           fontSize: 14,
         },
       }}

@@ -16,7 +16,7 @@ const AdditionalOptionsSheet = ({ navigation }) => {
             style={styles.icon}
             name="ios-create-outline"
             color={"black"}
-            size={24}
+            size={26}
           />
           <Text style={styles.optionText}>Edit Profile</Text>
         </Pressable>
@@ -32,7 +32,7 @@ const AdditionalOptionsSheet = ({ navigation }) => {
             style={styles.icon}
             name="settings-outline"
             color={"black"}
-            size={24}
+            size={26}
           />
           <Text style={styles.optionText}>Settings</Text>
         </Pressable>
@@ -47,7 +47,7 @@ const AdditionalOptionsSheet = ({ navigation }) => {
             style={styles.icon}
             name="information-circle-outline"
             color={"black"}
-            size={24}
+            size={26}
           />
           <Text style={styles.optionText}>About Popper</Text>
         </Pressable>
@@ -63,7 +63,7 @@ const AdditionalOptionsSheet = ({ navigation }) => {
             style={styles.icon}
             name="log-out-outline"
             color={"black"}
-            size={24}
+            size={26}
           />
           <Text style={styles.optionText}>Logout</Text>
         </Pressable>
@@ -77,10 +77,8 @@ export default AdditionalOptionsSheet;
 const styles = StyleSheet.create({
   container: {},
   optionContainer: {
-    paddingVertical: 10,
-    paddingHorizontal: 30,
-    // borderTopWidth: 1,
-    // borderBottomColor: "black",
+    paddingVertical: "3%",
+    paddingHorizontal: "10%",
   },
   pressable: {
     flexDirection: "row",
@@ -90,8 +88,9 @@ const styles = StyleSheet.create({
   },
   optionText: {
     color: "black",
-    fontSize: 14,
+    fontSize: 16,
     paddingTop: 3,
+    fontFamily: "QuicksandMedium"
   },
   pressed: {
     opacity: 0.5,

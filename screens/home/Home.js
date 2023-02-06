@@ -61,9 +61,10 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     color: "white",
     fontSize: 30,
-    fontWeight: "bold",
+    
     right: 33.5,
     bottom: 33,
+    fontFamily: "Quicksand_600Semibold"
   },
   modal: {
     flex: 1,

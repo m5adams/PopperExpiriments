@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     flex: 2,
     color: Colors.primary500,
     fontSize: 14,
-    fontWeight: "bold",
+    fontFamily: "QuicksandBold",
   },
   timeContainer: {
     flex: 1,
@@ -81,10 +81,11 @@ const styles = StyleSheet.create({
   timeText: {
     color: Colors.primary500,
     fontSize: 12,
-    opacity: 0.6,
+    fontFamily: "QuicksandLight"
   },
   previewText: {
     color: Colors.primary500,
-    fontSize: 12,
+    fontSize: 16,
+    fontFamily: "QuicksandSemiBold",
   },
 });
